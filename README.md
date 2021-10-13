@@ -1,7 +1,7 @@
 # EmpacJS
 
-Started by Britton Lorentzen on October 13th, 2021
-Live site: js.empac.co
+Started by Britton Lorentzen on October 13th, 2021 <br>
+Live site: <a href="https://js.empac.co">js.empac.co</a>
 
 ## Objective
 

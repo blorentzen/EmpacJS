@@ -41,3 +41,8 @@ h3.large, h4.large { font-size: 3rem; }
 h5.small, h6.small { font-size: 1.25rem; }
 h5.medium, h6.medium { font-size: 1.5rem; }
 h5.large, h6.large { font-size: 1.75rem; }
+
+.helloWorld {
+	display: flex; flex-direction: row; width: 100%; height: 100vh; 
+	justify-content: center; align-items: center;
+}

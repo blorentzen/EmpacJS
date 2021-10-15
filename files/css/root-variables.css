@@ -43,6 +43,6 @@ h5.medium, h6.medium { font-size: 1.5rem; }
 h5.large, h6.large { font-size: 1.75rem; }
 
 .helloWorld {
-	display: flex; flex-direction: row; width: 100%; height: 100vh; 
+	display: flex; flex-direction: column; width: 100%; height: 100vh; 
 	justify-content: center; align-items: center;
 }

@@ -93,6 +93,7 @@ class Link extends Button {
 		else { this.href = '#' }
 		this.tabindex = 0;
 		this.target = '_blank';
+		this.aria = {};
 		this.aria.label;
 	}
 	

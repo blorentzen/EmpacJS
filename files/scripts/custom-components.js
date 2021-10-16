@@ -61,6 +61,8 @@ class Container {
 		this.setElements(newContainer);
 		return newContainer;
 	}
+	
+	returnJSON(){ return JSON.stringify(this); }
 }
 
 /* Class for generating a button*/

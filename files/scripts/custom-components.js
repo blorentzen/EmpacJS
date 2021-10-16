@@ -64,10 +64,11 @@ class Container {
 
 /* Class for generating a button*/
 class Button extends Container {
-	constructor(){
+	constructor(theText){
 		super();
 		this.type = 'Button';
-		this.innerText;
+		if(theText != undefined){ this.innerText = theText.toString() }
+		else { this.innerText = '&nbsp;' }
 	}
 	
 	setText(theText){

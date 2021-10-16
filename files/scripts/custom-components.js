@@ -128,3 +128,4 @@ class Link extends Button {
 
 window.customElements.define('empac-container', Container);
 window.customElements.define('empac-button', Button);
+window.customElements.define('empac-link', Link);

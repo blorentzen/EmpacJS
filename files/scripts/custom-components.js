@@ -65,10 +65,10 @@ class Container {
 
 /* Class for generating a button*/
 class Button extends Container {
-	constructor(){
+	constructor(theText){
 		super();
-		this.setType('Button');
-		this.innerText;
+		if (theText != undefined){ this.innerText = theText ; }
+		else { this.innerText = 'Button'; }
 	}
 	
 	setText(theText){ this.innerText = theText; }
@@ -82,6 +82,46 @@ class Button extends Container {
 		this.setAttributes(newButton);
 		this.setElements(newButton);
 		return newButton;
+	}
+}
+
+/* Class for generating a link */
+class Link extends Button {
+	constructor(theHref, theText){
+		super(theText);
+		if (theHref != undefined){ this.href = theHref; }
+		else { this.href = '#' }
+		this.tabindex = 0;
+		this.target = '_blank';
+		this.aria.label;
+	}
+	
+	setHref(theHref){
+		if (theHref != undefined){ this.href = theHref; }
+	}
+	
+	setTabIndex(theIndex){
+		if (theIndex != undefined){ this.tabindex = theIndex; }
+	}
+	
+	setTarget(theTarget){
+		if (theTarget != undefined){ this.target = theTarget; }
+	}
+	
+	returnMarkup(){
+		let newLink = document.createElement('a');
+		newLink.appendChild(document.createTextNode(this.innerText));
+		
+		if(this.id != undefined){newLink.setAttribute('id', this.id)}
+		if(this.href != undefined){newLink.setAttribute('href', this.href)}
+		if(this.aria.label != undefined){newLink.setAttribute('href', this.aria.label)}
+		newLink.setAttribute('tabindex', this.tabindex.toString());
+		newLink.setAttribute('target', this.target);
+		
+		this.setClasses(newLink);
+		this.setAttributes(newLink);
+		this.setElements(newLink);
+		return newLink;
 	}
 }
 

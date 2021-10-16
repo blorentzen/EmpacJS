@@ -11,6 +11,7 @@ class Container {
 		this.elements = [];
 	}
 	
+	setType(theType){ this.type = theType }
 	setID(newID){ if(newID != undefined){ this.id = newID.toString() } }
 	addClass(newClass){  if (newClass != undefined){ this.classList.push(newClass.toString()) } }
 	
@@ -64,24 +65,23 @@ class Container {
 
 /* Class for generating a button*/
 class Button extends Container {
-	constructor(theText){
+	constructor(){
 		super();
-		this.type = 'Button';
-		if(theText != undefined){ this.innerText = theText.toString() }
-		else { this.innerText = '&nbsp;' }
+		this.setType('Button');
+		this.innerText;
 	}
 	
-	setText(theText){
-		this.innerText = document.createTextNode(theText.toString());
-	}
+	setText(theText){ this.innerText = theText; }
 	
 	returnMarkup(){
-		let newContainer = document.createElement('button');
-		if(this.id != undefined){newContainer.setAttribute('id', this.id)}
-		this.setClasses(newContainer);
-		this.setAttributes(newContainer);
-		this.setElements(newContainer);
-		return newContainer;
+		let newButton = document.createElement('button');
+		newButton.appendChild(document.createTextNode(this.innerText));
+		
+		if(this.id != undefined){newButton.setAttribute('id', this.id)}
+		this.setClasses(newButton);
+		this.setAttributes(newButton);
+		this.setElements(newButton);
+		return newButton;
 	}
 }
 

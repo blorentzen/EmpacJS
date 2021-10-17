@@ -1,4 +1,4 @@
-# EmpacJS
+![og-empacjs](https://user-images.githubusercontent.com/57265951/137647657-4dc29bc3-94fe-4be0-807c-b40e45e3410f.jpg)
 
 Started by Britton Lorentzen on October 13th, 2021 <br>
 Live site: <a href="https://js.empac.co">js.empac.co</a>

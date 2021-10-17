@@ -1,6 +1,10 @@
-// Custom Components Library by blorentz
+/** Custom Components Library
+* @author Britton Lorentzen <BrittonLorentzen@gmail.com>
+*/
 
-/* Class for generating a primary container */
+/** Class for generating a primary container 
+* @author Britton Lorentzen <BrittonLorentzen@gmail.com>
+*/
 class Container {
 	constructor(){
 		// Set main attributes
@@ -65,7 +69,9 @@ class Container {
 	returnJSON(){ return JSON.stringify(this); }
 }
 
-/* Class for generating a button*/
+/** Class for generating a button
+* @author Britton Lorentzen <BrittonLorentzen@gmail.com>
+*/
 class Button extends Container {
 	constructor(theText){
 		super();
@@ -87,7 +93,9 @@ class Button extends Container {
 	}
 }
 
-/* Class for generating a link */
+/** Class for generating a link 
+* @author Britton Lorentzen <BrittonLorentzen@gmail.com>
+*/
 class Link extends Button {
 	constructor(theHref, theText){
 		super(theText);

@@ -1,4 +1,6 @@
-// EmpacJS Application by blorentz
+/** EmpacJS Application
+* @author Britton Lorentzen <BrittonLorentzen@gmail.com>
+*/
 
 window.onload = function() {
 	

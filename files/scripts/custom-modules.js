@@ -1,6 +1,12 @@
-// Custom Modules Library by blorentz
+/** 
+* Custom Modules Library
+* @author Britton Lorentzen <brittonlorentzen@gmail.com
+*/
 
-/* Class for generating a primary hero module */
+
+/** Class for generating a primary hero module 
+* @author Britton Lorentzen <brittonlorentzen@gmail.com
+*/
 class Hero extends Container {
 	constructor(){
 		super();
@@ -25,7 +31,9 @@ class Hero extends Container {
 	}
 }
 
-/* Class for generating a multi-column module */
+/** Class for generating a multi-column module 
+* @author Britton Lorentzen <brittonlorentzen@gmail.com
+*/
 class MultiColumn extends Container {
 	constructor(colNumber){
 		super();

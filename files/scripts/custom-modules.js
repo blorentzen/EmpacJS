@@ -42,3 +42,4 @@ class MultiColumn extends Container {
 }
 
 window.customElements.define('empac-hero', Hero);
+window.customElements.define('empac-multicolumn', MultiColumn);

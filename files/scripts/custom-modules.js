@@ -35,7 +35,7 @@ class MultiColumn extends Container {
 		for(let i = 0; i < colNumber; i++){
 			let myIndex = i + 1;
 			let newContainer = new Container();
-			newContainer.setID('column-' + myIndex);
+			newContainer.setID(this.id + '-column-' + myIndex);
 			this.addElement(newContainer.returnMarkup());
 		}
 	}

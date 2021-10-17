@@ -17,14 +17,12 @@ class Hero extends Container {
 		mainContainer.setID('helloWorld');
 		mainContainer.addClass('helloWorld');
 
-		// Set up basic button
-		const mainButton = new Button('Test Button');
-		const mainLink = new Link('#', 'Test Link');
+		// Set up link to documentation
+		const mainLink = new Link('https://github.com/blorentz38/EmpacJS', 'Check out documentation');
 
 		// Add a simple headline element
 		mainContainer.addElement(createHeadline('h1', 'Hello World, EmpacJS is on the way.'));
 		mainContainer.addElement(createParagraph('This is an experiment space at the moment. More will come eventually.'));
-		mainContainer.addElement(mainButton.returnMarkup());
 		mainContainer.addElement(mainLink.returnMarkup());
 		
 		this.addElement(mainContainer.returnMarkup());

@@ -1,6 +1,6 @@
 // Custom Modules Library by blorentz
 
-/* Class for generating a primary container */
+/* Class for generating a primary hero module */
 class Hero extends Container {
 	constructor(){
 		super();
@@ -22,6 +22,22 @@ class Hero extends Container {
 		mainContainer.addElement(mainLink.returnMarkup());
 		
 		this.addElement(mainContainer.returnMarkup());
+	}
+}
+
+/* Class for generating a multi-column module */
+class MultiColumn extends Container {
+	constructor(colNumber){
+		super();
+		this.type = 'MultiColumn';
+		this.id = 'mcTest';
+		// Set up containers based on amount of columns needed
+		for(let i = 0; i < colNumber; i++){
+			let myIndex = i + 1;
+			let newContainer = new Container();
+			newContainer.setID('column-' + myIndex);
+			this.addElement(newContainer.returnMarkup());
+		}
 	}
 }
 

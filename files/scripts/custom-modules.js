@@ -7,9 +7,8 @@
 /** Class for generating a primary hero module 
 * @author Britton Lorentzen <brittonlorentzen@gmail.com
 */
-class Hero extends Container {
-	constructor(){
-		super();
+class Hero extends HTMLElement {
+	connectedCallback() {
 		this.type = 'Hero';
 		this.id = 'heroTest';
 		// Set up basic container
@@ -25,7 +24,7 @@ class Hero extends Container {
 		mainContainer.addElement(createParagraph('This is an experiment space at the moment. More will come eventually.'));
 		mainContainer.addElement(mainLink.returnMarkup());
 		
-		this.addElement(mainContainer.returnMarkup());
+		this.append(mainContainer.returnMarkup());
 	}
 }
 

@@ -3,6 +3,7 @@
 */
 
 window.onload = function() {
+	var testData;
 	
 	// Set up testing multicolumn
 	const testMulti = new MultiColumn(3);
@@ -13,19 +14,27 @@ window.onload = function() {
 
 }
 
+/** Function that saves data to the server */
 async function saveData(){
 	
 	// Set up basic hero
 	const testModule = new Container();
-	testModule.addElement(createHeadline('h1', 'Testing Headline'));
-	testModule.addElement(createParagraph('Testing Paragraph Copy'));
+	
+	let testHeadline = new Headline('h1');
+	testHeadline.setContent('Testing Headline');
+	
+	let testPara = new Paragraph();
+	testPara.setContent('Testing Paragraph Copy');
+	
+	testModule.addElement(testHeadline);
+	testModule.addElement(testPara);
 	
 	console.log(testModule.elements);
 	// Testing write to the server
 	let myPromise = new Promise(function(resolve){
 		try{
 			$.post( "../files/templates/write_json.php", { 
-				json: JSON.stringify(testModule), 
+				json: testModule.returnJSON(), 
 				file: 'test.json',
 				}
 			);
@@ -36,6 +45,7 @@ async function saveData(){
 	})
 }
 
+/** Function that gets data from the server */
 async function getData(){
 	let myPromise = new Promise(function(resolve){
 		let newRequest = new XMLHttpRequest();
@@ -45,6 +55,6 @@ async function getData(){
 		newRequest.send();
 		
 		// Handle the onload event
-		newRequest.onload = function(){ console.log(newRequest.response); }
+		newRequest.onload = function(){ testData = newRequest.response; console.log(newRequest.response); }
 	})
 }

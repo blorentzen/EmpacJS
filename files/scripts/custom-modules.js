@@ -29,9 +29,17 @@ class Hero extends HTMLElement {
 		let readLink = thirdLink.returnMarkup();
 		readLink.addEventListener('click', function(e){ e.preventDefault(); getData(); });
 		
+		// Create new headline
+		let myHeadline = new Headline('h1');
+		myHeadline.setContent('Hello World, EmpacJS is on the way.');
+		
+		// Create new headline
+		let myParagraph = new Paragraph();
+		myParagraph.setContent('This is an experiment space at the moment. More will come eventually.');
+		
 		// Add a simple headline element
-		mainContainer.addElement(createHeadline('h1', 'Hello World, EmpacJS is on the way.'));
-		mainContainer.addElement(createParagraph('This is an experiment space at the moment. More will come eventually.'));
+		mainContainer.addElement(myHeadline.returnMarkup());
+		mainContainer.addElement(myParagraph.returnMarkup());
 		mainContainer.addElement(mainLink.returnMarkup());
 		mainContainer.addElement(writeLink);
 		mainContainer.addElement(readLink);

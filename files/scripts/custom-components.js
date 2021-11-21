@@ -2,6 +2,44 @@
 * @author Britton Lorentzen <BrittonLorentzen@gmail.com>
 */
 
+/** Class for generating a headline
+ * @author Britton Lorentzen <BrittonLorentzen@gmail.com>
+ */
+class Headline {
+	constructor(theTag){
+		this.type = 'Headline';
+		this.tag = theTag;
+		this.content;
+	}
+	
+	setTag(newTag){ this.tag = newTag; }
+	setContent(theContent){ this.content = theContent; }
+	
+	returnMarkup(){
+		let newHeadline = document.createElement(this.tag);
+		newHeadline.innerText = this.content;
+		return newHeadline;
+	}
+}
+
+/** Class for generating a paragraph
+ * @author Britton Lorentzen <BrittonLorentzen@gmail.com>
+ */
+class Paragraph {
+	constructor(){
+		this.type = 'Paragraph';
+		this.content;
+	}
+	
+	setContent(theContent){ this.content = theContent; }
+	
+	returnMarkup(){
+		let newCopy = document.createElement('p');
+		newCopy.innerText = this.content;
+		return newCopy;
+	}
+}
+
 /** Class for generating a primary container 
 * @author Britton Lorentzen <BrittonLorentzen@gmail.com>
 */
@@ -53,7 +91,7 @@ class Container {
 	
 	setElements(theElement){
 		if(this.elements.length > 0){
-			for (let k = 0; k < this.elements.length; k++){ theElement.appendChild(this.elements[k]); }
+			for (let k = 0; k < this.elements.length; k++){ theElement.append(this.elements[k]); }
 		}
 	}
 	

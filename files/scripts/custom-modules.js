@@ -18,11 +18,23 @@ class Hero extends HTMLElement {
 
 		// Set up link to documentation
 		const mainLink = new Link('https://github.com/blorentz38/EmpacJS', 'Check out documentation');
-
+		
+		// Set up data writing link
+		const secondLink = new Link('#', 'Test File Writer');
+		let writeLink = secondLink.returnMarkup();
+		writeLink.addEventListener('click', function(e){ e.preventDefault(); saveData(); });
+		
+		// Set up data reading link
+		const thirdLink = new Link('#', 'Test File Reader');
+		let readLink = thirdLink.returnMarkup();
+		readLink.addEventListener('click', function(e){ e.preventDefault(); getData(); });
+		
 		// Add a simple headline element
 		mainContainer.addElement(createHeadline('h1', 'Hello World, EmpacJS is on the way.'));
 		mainContainer.addElement(createParagraph('This is an experiment space at the moment. More will come eventually.'));
 		mainContainer.addElement(mainLink.returnMarkup());
+		mainContainer.addElement(writeLink);
+		mainContainer.addElement(readLink);
 		
 		this.append(mainContainer.returnMarkup());
 	}

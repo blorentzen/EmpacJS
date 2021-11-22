@@ -104,7 +104,9 @@ class Container {
 		return newContainer;
 	}
 	
-	returnJSON(){ return JSON.stringify(this); }
+	returnJSON(){ 
+		return JSON.stringify(this); 
+	}
 }
 
 /** Class for generating a button

@@ -3,7 +3,6 @@
 */
 
 window.onload = function() {
-	var testData;
 	
 	// Set up testing multicolumn
 	const testMulti = new MultiColumn(3);
@@ -21,15 +20,14 @@ async function saveData(){
 	const testModule = new Container();
 	
 	let testHeadline = new Headline('h1');
-	testHeadline.setContent('Testing Headline');
+	testHeadline.setContent('This is a data-driven module.');
 	
 	let testPara = new Paragraph();
-	testPara.setContent('Testing Paragraph Copy');
+	testPara.setContent('This module was brought in using a JSON object. Woo!');
 	
 	testModule.addElement(testHeadline);
 	testModule.addElement(testPara);
 	
-	console.log(testModule.elements);
 	// Testing write to the server
 	let myPromise = new Promise(function(resolve){
 		try{
@@ -46,15 +44,37 @@ async function saveData(){
 }
 
 /** Function that gets data from the server */
-async function getData(){
-	let myPromise = new Promise(function(resolve){
+async function getData(theData, theComponent, theObject){
+	return new Promise(function(resolve){
 		let newRequest = new XMLHttpRequest();
-		newRequest.open('GET', '../files/templates/components/test.json', true);
+		newRequest.open('GET', '../files/templates/components/' + theData, true);
 		newRequest.setRequestHeader('Content-Type', 'application/json');
 		newRequest.responseType = 'json';
-		newRequest.send();
-		
+
 		// Handle the onload event
-		newRequest.onload = function(){ testData = newRequest.response; console.log(newRequest.response); }
-	})
+		newRequest.onload = function(){ 
+			let tempData = newRequest.response;
+			for(let e = 0; e < tempData.elements.length; e++){
+				let newElement = handleData(tempData.elements[e]);
+				theComponent.addElement(newElement);
+			};
+			resolve( theObject.append(theComponent.returnMarkup()) );
+		}
+
+		// Send Request
+		newRequest.send();
+	});
+}
+
+/** Function that handles data driven components */
+function handleData(theData){
+	let newChild;
+	if(theData.type == 'Headline'){
+		newChild = new Headline(theData.tag);
+		newChild.setContent(theData.content);
+	} else if (theData.type == 'Paragraph'){
+		newChild = new Paragraph();
+		newChild.setContent(theData.content);
+	}
+	return newChild.returnMarkup();
 }

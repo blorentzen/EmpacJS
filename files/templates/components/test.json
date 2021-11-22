@@ -1,1 +1,1 @@
-{"type":"Container","classList":[],"attributes":[],"elements":[{},{}]}
+{"type":"Container","classList":[],"attributes":[],"elements":[{"type":"Headline","tag":"h1","content":"This is a data-driven module."},{"type":"Paragraph","content":"This module was brought in using a JSON object. Woo!"}]}

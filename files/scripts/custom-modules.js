@@ -8,43 +8,56 @@
 * @author Britton Lorentzen <brittonlorentzen@gmail.com
 */
 class Hero extends HTMLElement {
+	constructor(){
+		super();
+	}
 	connectedCallback() {
+		// Set up primary settings
 		this.type = 'Hero';
-		this.id = 'heroTest';
-		// Set up basic container
-		const mainContainer = new Container();
-		mainContainer.setID('helloWorld');
+		let mainContainer = new Container();
 		mainContainer.addClass('helloWorld');
+		
+		// Set component based on data
+		if(this.getAttribute('data') != undefined){
+			let dataString = this.getAttribute('data');
+			getData(dataString, mainContainer, this).then(function(value){ console.log('Success'); });
+			// this.innerHTML = (myResults);
+		}
+		else {
+			this.id = 'heroTest';
+			// Set up basic container
+			mainContainer.setID('helloWorld');
 
-		// Set up link to documentation
-		const mainLink = new Link('https://github.com/blorentz38/EmpacJS', 'Check out documentation');
-		
-		// Set up data writing link
-		const secondLink = new Link('#', 'Test File Writer');
-		let writeLink = secondLink.returnMarkup();
-		writeLink.addEventListener('click', function(e){ e.preventDefault(); saveData(); });
-		
-		// Set up data reading link
-		const thirdLink = new Link('#', 'Test File Reader');
-		let readLink = thirdLink.returnMarkup();
-		readLink.addEventListener('click', function(e){ e.preventDefault(); getData(); });
-		
-		// Create new headline
-		let myHeadline = new Headline('h1');
-		myHeadline.setContent('Hello World, EmpacJS is on the way.');
-		
-		// Create new headline
-		let myParagraph = new Paragraph();
-		myParagraph.setContent('This is an experiment space at the moment. More will come eventually.');
-		
-		// Add a simple headline element
-		mainContainer.addElement(myHeadline.returnMarkup());
-		mainContainer.addElement(myParagraph.returnMarkup());
-		mainContainer.addElement(mainLink.returnMarkup());
-		mainContainer.addElement(writeLink);
-		mainContainer.addElement(readLink);
-		
-		this.append(mainContainer.returnMarkup());
+			// Set up link to documentation
+			const mainLink = new Link('https://github.com/blorentz38/EmpacJS', 'Check out documentation');
+
+			// Set up data writing link
+			const secondLink = new Link('#', 'Test File Writer');
+			let writeLink = secondLink.returnMarkup();
+			writeLink.addEventListener('click', function(e){ e.preventDefault(); saveData(); });
+
+			// Set up data reading link
+			const thirdLink = new Link('#', 'Test File Reader');
+			let readLink = thirdLink.returnMarkup();
+			readLink.addEventListener('click', function(e){ e.preventDefault(); getData('test.json'); });
+
+			// Create new headline
+			let myHeadline = new Headline('h1');
+			myHeadline.setContent('Hello World, EmpacJS is on the way.');
+
+			// Create new headline
+			let myParagraph = new Paragraph();
+			myParagraph.setContent('This is an experiment space at the moment. More will come eventually.');
+
+			// Add a simple headline element
+			mainContainer.addElement(myHeadline.returnMarkup());
+			mainContainer.addElement(myParagraph.returnMarkup());
+			mainContainer.addElement(mainLink.returnMarkup());
+			mainContainer.addElement(writeLink);
+			mainContainer.addElement(readLink);
+
+			this.append(mainContainer.returnMarkup());
+		}
 	}
 }
 

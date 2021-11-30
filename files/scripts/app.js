@@ -16,15 +16,18 @@ window.onload = function() {
 /** Function that saves data to the server */
 async function saveData(){
 	
+	// Grab current component variables
+	let myEditedComp = document.getElementById('testModule');
+	
 	// Set up basic hero
 	const testModule = new Container();
 	testModule.setID('testModule');
 	
 	let testHeadline = new Headline('h1');
-	testHeadline.setContent('This is a data-driven module.');
+	testHeadline.setContent(myEditedComp.getElementsByTagName('h1')[0].innerHTML);
 	
 	let testPara = new Paragraph();
-	testPara.setContent('This module was brought in using a JSON object. Woo!');
+	testPara.setContent(myEditedComp.getElementsByTagName('p')[0].innerHTML);
 	
 	testModule.addElement(testHeadline);
 	testModule.addElement(testPara);

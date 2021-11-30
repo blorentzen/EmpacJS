@@ -59,12 +59,13 @@ async function getData(theData, theComponent, theObject){
 		newRequest.onload = function(){ 
 			let tempData = newRequest.response;
 			// Attach ID to new component instance
-			if(tempData.id != undefined){ theComponent.setID(tempData.id) } else { theComponent.addID(); };
+			if(tempData.id != undefined){ theComponent.setID(tempData.id); } else { theComponent.addID(); };
 			for(let e = 0; e < tempData.elements.length; e++){
 				let newElement = handleData(tempData.elements[e]);
 				theComponent.addElement(newElement);
 			};
-			resolve( theObject.append(theComponent.returnMarkup()) );
+			theObject.append(theComponent.returnMarkup());
+			resolve( tempData.id );
 		}
 
 		// Send Request

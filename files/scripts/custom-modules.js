@@ -21,8 +21,18 @@ class Hero extends HTMLElement {
 		if(this.getAttribute('data') != undefined){
 			mainContainer.addAttribute('contenteditable');
 			let dataString = this.getAttribute('data');
-			getData(dataString, mainContainer, this).then(function(value){ console.log('Success'); });
-			// this.innerHTML = (myResults);
+			getData(dataString, mainContainer, this).then(function(value){ 
+				console.log('Success'); 
+				
+				// Set focus states
+				let newContainer = document.getElementById(value);
+				let newHL = newContainer.getElementsByTagName('h1');
+				let newP = newContainer.getElementsByTagName('p');
+				
+				newContainer.addEventListener('focus', function(){ this.classList.add('hasFocus'); });
+				newContainer.addEventListener('blur', function(){ this.classList.remove('hasFocus'); });
+				
+			});
 		}
 		else {
 			this.id = 'heroTest';

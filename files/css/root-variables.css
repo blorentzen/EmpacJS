@@ -53,6 +53,9 @@ h5.large, h6.large { font-size: 1.75rem; }
 	justify-content: center; align-items: center;
 }
 
+#testModule { transition: 0.5s; -moz-transition: 0.5s; -webkit-transition: 0.5s; }
+#testModule.hasFocus { transition: 0.5s; -moz-transition: 0.5s; -webkit-transition: 0.5s; background: rgba(0, 0, 255, 0.25); outline: 2px solid rgba(0, 255, 0, 0.5); }
+
 #mcTest { 
 	display: flex; flex-direction: row; justify-content: space-around; 
 	width: calc(100% - var(--grid-spacing-2x)); 

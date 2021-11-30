@@ -18,6 +18,7 @@ async function saveData(){
 	
 	// Set up basic hero
 	const testModule = new Container();
+	testModule.setID('testModule');
 	
 	let testHeadline = new Headline('h1');
 	testHeadline.setContent('This is a data-driven module.');
@@ -36,7 +37,7 @@ async function saveData(){
 				file: 'test.json',
 				}
 			);
-			resolve(console.log('Submission Success.'));
+			resolve(window.alert('The file has been rewritten. Refresh the page to see new content.'));
 		} catch(e) {
 			resolve(console.log('Submission Failed.'));
 		}
@@ -54,6 +55,8 @@ async function getData(theData, theComponent, theObject){
 		// Handle the onload event
 		newRequest.onload = function(){ 
 			let tempData = newRequest.response;
+			// Attach ID to new component instance
+			if(tempData.id != undefined){ theComponent.setID(tempData.id) } else { theComponent.addID(); };
 			for(let e = 0; e < tempData.elements.length; e++){
 				let newElement = handleData(tempData.elements[e]);
 				theComponent.addElement(newElement);

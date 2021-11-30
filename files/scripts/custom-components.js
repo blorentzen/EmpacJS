@@ -54,7 +54,16 @@ class Container {
 	}
 	
 	setType(theType){ this.type = theType }
-	setID(newID){ if(newID != undefined){ this.id = newID.toString() } }
+	setID(newID){ if(newID != undefined){ this.id = newID } }
+	addID(){ 
+		let newDate = Date.now();
+		let newID =  'container_';
+		let randomNumber = 1 + Math.floor(Math.random() * 100);
+		let uniqueNum = newDate * randomNumber;
+		newID += uniqueNum;
+		this.id = newID;
+	}
+	
 	addClass(newClass){  if (newClass != undefined){ this.classList.push(newClass.toString()) } }
 	
 	removeClass(theClass){

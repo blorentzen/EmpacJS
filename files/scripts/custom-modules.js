@@ -26,7 +26,7 @@ class Hero extends HTMLElement {
 		else {
 			this.id = 'heroTest';
 			// Set up basic container
-			mainContainer.setID('helloWorld');
+			mainContainer.addID();
 
 			// Set up link to documentation
 			const mainLink = new Link('https://github.com/blorentz38/EmpacJS', 'Check out documentation');

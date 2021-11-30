@@ -19,6 +19,7 @@ class Hero extends HTMLElement {
 		
 		// Set component based on data
 		if(this.getAttribute('data') != undefined){
+			mainContainer.addAttribute('contenteditable');
 			let dataString = this.getAttribute('data');
 			getData(dataString, mainContainer, this).then(function(value){ console.log('Success'); });
 			// this.innerHTML = (myResults);

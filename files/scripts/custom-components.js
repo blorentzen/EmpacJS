@@ -49,7 +49,7 @@ class Container {
 		this.type = 'Container';
 		this.id;
 		this.classList = [];
-		this.attributes = ['contenteditable'];
+		this.attributes = [];
 		this.elements = [];
 	}
 	

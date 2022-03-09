@@ -10,6 +10,7 @@ The goal with the project is to create a lightweight framework and design system
 ## Associated Apps
 
 **Empac Studio**<br>
+Simple application for setting up a style guide and system for small businesses. <br><br>
 <a href="https://github.com/blorentz38/EmpacStudio">Github</a><br>
 <a href="https://studio.empacdesign.com">Website</a><br>
 

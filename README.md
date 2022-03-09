@@ -7,6 +7,12 @@ Live site: <a href="https://js.empac.co">js.empac.co</a>
 
 The goal with the project is to create a lightweight framework and design system that can be leveraged for small businesses and their website needs. When a small business is putting together a website, there's typically little to no need for deploying a large framework that delivers a robust library and risks site performance. This framework serves as a simplified way to put together atomic elements and a structure that will satisfy most needs of a small business.
 
+## Associated Apps
+
+**Empac Studio**<br>
+<a href="https://github.com/blorentz38/EmpacStudio">Github</a><br>
+<a href="https://studio.empacdesign.com">Website</a><br>
+
 ## License
 
 MIT License

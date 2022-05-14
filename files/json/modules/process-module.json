@@ -1,0 +1,54 @@
+{
+	"type":"container",
+	"id":"processSection",
+	"classList":["container", "row", "justify-center"],
+	"attributes":["anim-drop-fade", "custom-margin"],
+	"properties":[
+		{ "key":"--padding-mult", "value":"2"},
+		{ "key":"--margin-mult", "value":"2"}
+	],
+	"elements":[ 
+		{
+			"type":"container",
+			"classList":["container", "module", "row"],
+			"attributes":["multi-dual", "custom-padding", {"key": "color-overlay", "value": "white"}],
+			"properties":[ { "key": "--overlay-opacity", "value": "0.8" } ],
+			"elements":[
+				{
+					"type":"container",
+					"classList":["content", "col", "align-center", "justify-center"],
+					"attributes":["custom-padding", "order-adjust-mobile"],
+					"properties":[ { "key":"--flex-order", "value":"1" } ],
+					"elements": [
+						{
+							"type": "image", 
+							"alt": "flow chart",
+							"size": "xlarge",
+							"src": "/files/images/icons/standard/black/flowchart-icon.svg",
+							"properties":[ { "key":"--size-mult", "value":"3" } ]
+						}
+					]
+				},
+				{
+					"type":"container",
+					"classList":["content", "col", "align-center", "justify-center"],
+					"attributes":["custom-padding", "order-adjust-mobile"],
+					"properties":[ { "key":"--flex-order", "value":"2" } ],
+					"elements":[
+						{
+							"type":"headline",
+							"tag":"h3",
+							"size":"large",
+							"content":"Built with a process custom designed to your needs."
+						},
+						{
+							"type":"text",
+							"tag":"p",
+							"content":"A ‘one size fits all’ approach rarely works for everybody. Depending on where you’re at in your digital transformation, we’ll ensure a design and development process that meets your needs and expectations."
+						}
+					]
+				}
+			]
+		}
+	]
+}

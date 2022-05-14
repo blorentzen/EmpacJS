@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* CSS Document */
+/* Setup CSS Variables for Empac */
+/* By Britton Lorentzen, blorentz.com */
+
+:root {
+	
+	/* Set up primary text */
+	--font-display: "europa", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	
+	/* Set up color palette */
+	--color-black: #202020;
+	--color-white: #fff;
+	--color-brand: #0E75C1;
+	
+	/* Set up grid spacing */
+	--spacing-grid: 1rem;
+	
+	/* Set border radius */
+	--border-radius: 1rem;
+	
+}

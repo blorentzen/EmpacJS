@@ -1,61 +1,87 @@
 <!doctype html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>EmpacJS</title>
-	
-	<!-- Set up meta tags -->
-	<meta name="author" content="Britton Lorentzen"/>
-	<meta name="description" content="A lightweight framework and design system for small business websites that don't need the bells and whistles of a typical framework."/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-	<meta name="robots" content="noindex, nofollow">
-	
-	<!-- Styling -->
-	<link rel="stylesheet" type="text/css" href="../files/css/root-variables.css">
-	<link rel="stylesheet" href="https://use.typekit.net/buo4oce.css">
-	<link rel="shortcut icon" href="../files/images/browser/empac-logo-browser.jpg">
-	<meta name="theme-color" content="#000000">
-	
-	<!-- Scripts for components and modules -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="application/javascript" src="../files/scripts/app.js"></script>
-	<script type="application/javascript" src="../files/scripts/native-html-components.js"></script>
-	<script type="application/javascript" src="../files/scripts/custom-components.js"></script>
-	<script type="application/javascript" src="../files/scripts/custom-modules.js"></script>
-	
-	<!-- OpenGraph meta tags -->
-	<meta property="og:title" content="EmpacJS"/>
-	<meta property="og:type" content="website"/>
-	<meta property="og:image" content="../files/images/opengraph/2021/og-empacjs.jpg"/>
-	<meta property="og:description" content="A lightweight framework and design system for small business websites that don't need the bells and whistles of a typical framework."/>
-	<meta property="og:url" content="https://js.empac.co/"/>
-	
-	<!-- Twitter Card Markup -->	
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:site" content="@blorentz38" />
-	<meta name="twitter:creator" content="@blorentz38" />
-	
-	<!-- Google Scripts -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KS85CE5X4"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+<html lang="en">
+	<head>
+		<title>EmpacJS</title>
 
-	  gtag('config', 'G-3KS85CE5X4');
-	</script>
-	
-	<!-- Set Canonical -->
-	<link rel="canonical" href="https://js.empac.co/" />
-	
-</head>
+		<!-- Regular META -->
 
-<body>
-	<empac-hero></empac-hero>
-	
-	<!-- Testing data driven module -->
-	<empac-hero data="test.json"></empac-hero>
-	
-</body>
+		<meta name="author" content="Britton Lorentzen"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"/>
+		<meta charset="UTF-8">
+		<meta name="robots" content="index, follow"/>
+		<meta name="description" content="A lightweight framework and design system for small business websites that don't need the bells and whistles of a typical framework."/>
+		<meta name="keywords" content="consulting, digital design, graphic design, web design, marketing services, seattle, tacoma, bonney lake, lake tapps, puyallup, auburn, kent, federal way, sumner, gig harbor, washington"/>
+
+		<!-- OpenGraph META -->
+
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="Empac" />
+		<meta property="og:title" content="EmpacJS"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:image" content="https://js.empac.co/files/images/opengraph/og-empacjs.jpg"/>
+		<meta property="og:description" content="A lightweight framework and design system for small business websites that don't need the bells and whistles of a typical framework."/>
+		<meta property="og:url" content="https://js.empac.co/"/>
+
+		<!-- Twitter Card Markup -->
+
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@emeraldpacific" />
+		<meta name="twitter:creator" content="@emeraldpacific" />
+
+		<!-- Stylesheets and Javascript --> 
+
+		<link rel="shortcut icon" href="/files/images/browser/empac-logo-browser.jpg"> 
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/files/css/variables.css" />
+		<link rel="stylesheet" type="text/css" href="/files/css/empac-2022.css" />
+		<link rel="stylesheet" href="https://use.typekit.net/rgx3lyo.css">
+		<script type="module" src="/files/scripts/app.js"></script>
+		<script type="text/javascript" src="/files/scripts/functions.js"></script>
+		<meta name="theme-color" content="#000000" >
+
+		<!-- Google Scripts -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KS85CE5X4"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-3KS85CE5X4');
+		</script>
+
+		<!-- Set Canonical -->
+		<link rel="canonical" href="https://js.empac.co/" />
+
+	</head>
+
+	<body>
+
+		<!-- Loader for page loads -->
+		<ejs-loader></ejs-loader>
+
+		<!-- Navigation Section -->
+		<ejs-module data="empac-nav-bar"></ejs-module>
+		
+		<!-- Introduction -->
+		<div class="container header-module dark-mode has_bg row shadow-box justify-center align-center text-center" style="--padding-mult: 2; --bg-img: url('/files/images/bg/abstract/empac-sound_waves-bg.jpg'); --bg-pos-dsk: center center; --bg-pos-mob: center center;" bg-pos>
+			<div class="content" custom-padding style="--padding-mult: 2;" >
+				<h1 size="small">Welcome to EmpacJS</h1>
+			</div>
+		</div>
+		
+		<!-- Module Examples -->
+		<div class="container" style="--margin-mult: 4;" custom-margin anim-drop-fade>
+			<div class="content text-center" style="--margin-mult: 2;" custom-margin>
+				<h3 size="small">Module Examples</h3>
+			</div>
+		</div>
+		
+		<!-- Examples -->
+		<ejs-module data="empacjs-github"></ejs-module>
+		<ejs-module data="process-module"></ejs-module>
+		<ejs-module data="small-town-styleguide"></ejs-module>
+		<ejs-module data="social-bar"></ejs-module>
+
+	</body>
 
 </html>

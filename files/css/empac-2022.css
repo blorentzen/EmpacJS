@@ -522,6 +522,9 @@ div[color-overlay] { width: 100%; }
 	
 	.row[form-section] div { width: 100%; }
 	
+	[justify-center-mob]{ justify-content: center; }
+	[align-center-mob]{ align-items: center; }
+	
 	/* Order Adjustments at Mobile */
 	[order-adjust-mobile] { order: var(--flex-order); }
 	

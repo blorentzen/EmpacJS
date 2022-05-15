@@ -1,6 +1,6 @@
 {
 	"type":"container",
-	"id":"processSection",
+	"id":"frameworkSection",
 	"classList":["container", "row", "justify-center"],
 	"attributes":["anim-drop-fade", "custom-margin"],
 	"properties":[
@@ -16,22 +16,22 @@
 			"elements":[
 				{
 					"type":"container",
-					"classList":["content", "col", "align-center", "justify-center"],
+					"classList":["content", "col", "align-center", "justify-start"],
 					"attributes":["custom-padding", "order-adjust-mobile"],
 					"properties":[ { "key":"--flex-order", "value":"1" } ],
 					"elements": [
 						{
 							"type": "image", 
-							"alt": "flow chart",
+							"alt": "framework",
 							"size": "xlarge",
-							"src": "/files/images/icons/standard/black/flowchart-icon.svg",
+							"src": "/files/images/icons/web_design/black/framework-icon.svg",
 							"properties":[ { "key":"--size-mult", "value":"3" } ]
 						}
 					]
 				},
 				{
 					"type":"container",
-					"classList":["content", "col", "align-center", "justify-center"],
+					"classList":["content", "col", "align-center", "justify-start"],
 					"attributes":["custom-padding", "order-adjust-mobile"],
 					"properties":[ { "key":"--flex-order", "value":"2" } ],
 					"elements":[
@@ -39,12 +39,17 @@
 							"type":"headline",
 							"tag":"h3",
 							"size":"large",
-							"content":"Built with a process custom designed to your needs."
+							"content":"Scalability comes from radical simplicity."
 						},
 						{
 							"type":"text",
 							"tag":"p",
-							"content":"A ‘one size fits all’ approach rarely works for everybody. Depending on where you’re at in your digital transformation, we’ll ensure a design and development process that meets your needs and expectations."
+							"content":"Most frameworks give you all the bells and whistles in one package. However, for most businesses they don't need all the bells and whistles. Over time we've learned that businesses require easier and more efficient ways to build and update their website. However, efficiency shouldn't compromise the ability to add customization. That's why EmpacJS at its core is simplified to the most general components (containers, headlines, links, etc)."
+						},
+						{
+							"type":"text",
+							"tag":"p",
+							"content":"As businesses require more customized components and modules, the additions are treated as plugins instead of standard features. This guarantees the integrity of the primary framework while allowing requests for customized features businesses will eventually require."
 						}
 					]
 				}

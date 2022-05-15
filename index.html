@@ -34,6 +34,7 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/files/css/variables.css" />
 		<link rel="stylesheet" type="text/css" href="/files/css/empac-2022.css" />
+		<link rel="stylesheet" type="text/css" href="/files/css/form-styling.css" />
 		<link rel="stylesheet" href="https://use.typekit.net/rgx3lyo.css">
 		<script type="module" src="/files/scripts/app.js"></script>
 		<script type="text/javascript" src="/files/scripts/functions.js"></script>
@@ -62,24 +63,52 @@
 		<!-- Navigation Section -->
 		<ejs-module data="empac-nav-bar"></ejs-module>
 		
-		<!-- Introduction -->
+		<!-- M1 Introduction -->
 		<div class="container header-module dark-mode has_bg row shadow-box justify-center align-center text-center" style="--padding-mult: 2; --bg-img: url('/files/images/bg/abstract/empac-sound_waves-bg.jpg'); --bg-pos-dsk: center center; --bg-pos-mob: center center;" bg-pos>
-			<div class="content" custom-padding style="--padding-mult: 2;" >
-				<h1 size="small">Welcome to EmpacJS</h1>
+			<div class="content" custom-padding style="--padding-mult: 4;" >
+				<h1 size="small" style="--padding-mult: 2;" custom-padding>Welcome to EmpacJS</h1>
+				<p>The future web builder for small business. An all-in-one solution that aligns the most important aspects of your brand with all the ways your business shows up online and in digital spaces. This space is dedicated to the framework part of EmpacJS.</p>
 			</div>
 		</div>
 		
-		<!-- Module Examples -->
-		<div class="container" style="--margin-mult: 4;" custom-margin anim-drop-fade>
-			<div class="content text-center" style="--margin-mult: 2;" custom-margin>
-				<h3 size="small">Module Examples</h3>
-			</div>
-		</div>
+		<!-- Framework Module -->
+		<ejs-module data="framework-module"></ejs-module>
 		
-		<!-- Examples -->
+		<!-- Data Driven Module -->
+		<ejs-module data="empacjs-data_driven"></ejs-module>
+		
+		<!-- Open Source Module -->
 		<ejs-module data="empacjs-github"></ejs-module>
-		<ejs-module data="process-module"></ejs-module>
-		<ejs-module data="small-town-styleguide"></ejs-module>
+		
+		<!-- Email Signup Module -->
+		<div anim-drop-fade="true" bg-pos="true" custom-margin="true" class="container module light-mode has_bg row shadow-box" style="--bg-img:url('/files/images/bg/abstract/bg-empac-interconnected-light.jpg'); --bg-pos-dsk:center center; --bg-pos-mob:center center; --padding-mult:2; --margin-mult: 2;">
+			<div color-overlay="white" class="container module col align-center justify-center" style="--overlay-opacity:0.8;" custom-padding>
+				<div custom-padding="true" class="content">
+					<h3 class="text-center" size="medium" ejs-type="headline">There's much more to come.</h3>
+					<p class="text-center" ejs-type="text">Looking to leverage EmpacJS for your business? Sign up for email updates and we'll keep you in the loop.</p>
+					<div id="formSection" class="content col justify-center align-center" custom-margin style="--padding-mult: 1; --margin-mult: 1;">
+						<form id="myForm" class="email-signup" action="https://squareup.com/outreach/MhBio8/subscribe" method="POST" target="_blank">
+
+							<div class="custom-input">
+								<input type="email" id="email_address" name="email_address" placeholder="" value="">
+								<label for="email_address">Email</label>
+							</div>
+							<input type="hidden" name="embed" value="true">
+
+							<div class="module column align-center justify-center center-margin text-center">
+								<div class="cta-section row justify-center center-margin">
+									<button class="primary brand center-margin" id="formSubmit" name="submit" type="submit">Submit</button>
+								</div>
+							</div>
+						</form>
+						<!-- Set Form Listeners -->
+						<script>setFormListeners();</script>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Social Bar -->
 		<ejs-module data="social-bar"></ejs-module>
 
 	</body>

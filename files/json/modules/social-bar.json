@@ -2,7 +2,7 @@
 	"type":"container",
 	"id":"empacSocialBar",
 	"classList":["container", "module", "dark-mode", "row", "align-center"],
-	"attributes":["custom-margin", "multi-tri", "bg-color-brand", "anim-drop-fade"],
+	"attributes":["custom-margin", "multi-dual", "bg-color-brand", "anim-drop-fade"],
 	"properties":[
 		{ "key": "--padding-mult", "value": "1" },
 		{ "key": "--margin-mult", "value": "1" }
@@ -22,14 +22,14 @@
 						{"key":"--cf-weight", "value":"700"},
 						{"key":"--cf-line_height", "value":"2em"}
 					],
-					"content":"Let's Chat"
+					"content":"Let's Connect"
 				}
 			]
 		},
 		{
 			"type":"container",
-			"classList":["content", "row", "align-center", "justify-center"],
-			"attributes":["custom-padding", "social-bar"],
+			"classList":["content", "row", "align-center", "justify-end"],
+			"attributes":["custom-padding", "social-bar", "justify-center-mob"],
 			"elements":[
 				{
 					"type":"link",
@@ -62,20 +62,6 @@
 					"target":"_blank",
 					"network":"linkedin",
 					"href":"https://linkedin.com/company/emeraldpacific"
-				}
-			]
-		},
-		{
-			"type":"container",
-			"classList":["content", "row", "align-center", "justify-end"],
-			"attributes":["custom-padding"],
-			"elements":[
-				{
-					"type":"link",
-					"aria-label":"Contact now",
-					"classList":["btn", "tertiary"],
-					"content":"Contact now",
-					"href":"/contact"
 				}
 			]
 		}

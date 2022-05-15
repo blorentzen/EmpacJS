@@ -264,8 +264,59 @@ function getTagAttributes(theEl){
 	return attrList;
 }
 
+// Function that retrieves code for samples
+async function retrieveCode(theSample){
+	let url = '/files/json/modules/' + theSample + '.json';
+	let request = new Request(url);
+	let response = await fetch(request);
+	return await response.json();
+}
+
+// Function that grabs code samples to display
+function displayCode(theSection){
+	let mySample = theSection.getAttribute('sample');
+	let fetchData;
+	retrieveCode(mySample).then(function(value){ 
+		fetchData = value;
+	}).finally(() => { 
+		let textWrapper = document.createElement('span');
+		textWrapper.innerText += JSON.stringify(fetchData);
+		theSection.append(textWrapper);
+		
+		// Format Code
+		formatCode(theSection);
+	});
+}
+
+// Function that formats the code
+function formatCode(theSection){
+	// Formatting by character
+	theSection.innerHTML = theSection.innerHTML.replaceAll('{', '<br> {');
+	theSection.innerHTML = theSection.innerHTML.replaceAll(',', ', ');
+	
+	// Formatting by simple attributes
+	theSection.innerHTML = theSection.innerHTML.replaceAll('"key"', '<span class="key">"key"</span>');
+	theSection.innerHTML = theSection.innerHTML.replaceAll('"value"', '<span class="key">"value"</span>');
+	
+	theSection.innerHTML = theSection.innerHTML.replaceAll('"type"', '<br><span class="key">"type"</span>');
+	theSection.innerHTML = theSection.innerHTML.replaceAll('"id"', '<br><span class="key">"id"</span>');
+	theSection.innerHTML = theSection.innerHTML.replaceAll('"tag"', '<br><span class="key">"tag"</span>');
+	theSection.innerHTML = theSection.innerHTML.replaceAll('"size"', '<br><span class="key">"size"</span>');
+	theSection.innerHTML = theSection.innerHTML.replaceAll('"content"', '<br><span class="key">"content"</span>');
+	
+	// Formatting by objects and arrays
+	theSection.innerHTML = theSection.innerHTML.replaceAll('"classList"', '<br><br><span class="key">"classList"</span>');
+	theSection.innerHTML = theSection.innerHTML.replaceAll('"attributes"', '<br><br><span class="key">"attributes"</span>');
+	theSection.innerHTML = theSection.innerHTML.replaceAll('"properties"', '<br><br><span class="key">"properties"</span>');
+	theSection.innerHTML = theSection.innerHTML.replaceAll('"elements"', '<br><br><span class="key">"elements"</span>');
+};
+
 // Set the document up
 window.onload = () => {
+	
+	// Display code samples
+	document.querySelectorAll('code').forEach(el => { displayCode(el); });
+	
 	setTimeout(() => {
 		let mySpinner = document.querySelector('.primary-loader');
 		let navBar = document.querySelector('.nav-bar');

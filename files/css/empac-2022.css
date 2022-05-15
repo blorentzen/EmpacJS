@@ -439,6 +439,27 @@ div[color-overlay] { width: 100%; }
 .has_bg [color-overlay='white'] { background: rgba(255, 255, 255, var(--overlay-opacity)); }
 .has_bg [color-overlay='black'] { background: rgba(0, 0, 0, var(--overlay-opacity)); }
 
+/* Formatting for showing code */
+pre, code { width: 100%; }
+
+pre { 
+	overflow-y: scroll; max-height: 450px; width: calc(100% - 2rem);
+	padding: 1rem;
+	background-color: var(--color-black);
+	white-space: normal;
+	-moz-border-radius: var(--border-radius); 
+	-webkit-border-radius: var(--border-radius);
+	border-radius: var(--border-radius); 
+}
+
+code {
+	line-height: 2rem;
+	color: var(--color-white);
+}
+
+code br { display: block; margin-bottom: 1.5em; }
+code span.key { color: var(--color-brand); }
+
 /* Standard Desktop */
 
 @media only screen and (max-width: 1440px) {

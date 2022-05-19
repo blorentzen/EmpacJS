@@ -117,8 +117,12 @@ function createElement(theData){
 }
 
 /** Function that gets data from the server */
-export async function getData(theData){
-	let url = '/files/json/modules/' + theData + '.json';
+export async function getData(theData, theType){
+	let url = '/files/json/';
+	if(theType != undefined){ url += theType; url += '/'; }
+	else { url += 'modules/'; };
+	url += theData;
+	url += '.json';
 	let request = new Request(url);
 	let response = await fetch(request);
 	return await response.json();

@@ -265,8 +265,12 @@ function getTagAttributes(theEl){
 }
 
 // Function that retrieves code for samples
-async function retrieveCode(theSample){
-	let url = '/files/json/modules/' + theSample + '.json';
+async function retrieveCode(theSample, theType){
+	let url = '/files/json/';
+	if(theType != undefined){ url += theType; url += '/'; }
+	else { url += 'modules/'; };
+	url += theSample;
+	url += '.json';
 	let request = new Request(url);
 	let response = await fetch(request);
 	return await response.json();

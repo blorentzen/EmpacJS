@@ -45,7 +45,8 @@ export class EmpacModule extends HTMLElement {
 		
 		if(this.getAttribute('data') != undefined){
 			let dataString = this.getAttribute('data');
-			getData(dataString).then(function(value){ 
+			let dataType = this.getAttribute('data-type');
+			getData(dataString, dataType).then(function(value){ 
 				newData = value;
 			}).finally(() => { this.append(handleData(newData)); });
 		}

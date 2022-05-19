@@ -20,6 +20,7 @@ body {
 	/* Set primary padding / margin multiple */
 	--padding-mult: 1; --margin-mult: 1;
 	width: 100%; display: block; position: relative; 
+	background-color: var(--color-white);
 }
 
 footer { 
@@ -30,7 +31,7 @@ footer {
 
 .container { 
 	width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); 
-	max-width: 1620px; margin-inline: auto; 
+	max-width: 1620px; margin-inline: auto; overflow: hidden;
 }
 
 .module { -moz-border-radius: var(--border-radius); -webkit-border-radius: var(--border-radius); border-radius: var(--border-radius); }
@@ -58,6 +59,15 @@ footer {
 
 .row[multi-tri][tri-one-two-one] div { width: calc(25% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
 .row[multi-tri][tri-one-two-one] div:nth-child(2) { width: calc(50% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+
+/* Set up carousel */
+.row[carousel] { flex-wrap: nowrap; overflow-x: scroll; scroll-padding: var(--spacing-grid); padding: var(--spacing-grid); }
+
+.row[carousel]::before { position: absolute; left: -1px; height: 100%; width: 2rem; background: linear-gradient(to right, var(--color-white), transparent); content: ''; }
+
+.row[carousel]::after { position: absolute; right: -1px; height: 100%; width: 2rem; background: linear-gradient(to left, var(--color-white), transparent); content: ''; }
+
+.row[carousel] div { width: var(--card-width); flex-shrink: 0; }
 
 /* Subsets of row types */
 .row[social-bar] { flex-direction: row; }
@@ -191,7 +201,7 @@ span.nav-heading { font-family: var(--font-display); font-weight: 600; font-size
 [cfs-line_height] { line-height: var(--cf-line_height); }
 [cfs-weight] { font-weight: var(--cf-weight); }
 
-.shadow-box { box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); }
+.shadow-box { box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); }
 
 [sticky-dsk]{ position: sticky; top: 100px; }
 
@@ -360,6 +370,8 @@ nav.active .container {
 	-moz-transition: .75s; -webkit-transition: .75s; transition: .75s; 
 }
 
+nav [multi-tri] div { margin-inline: 1rem; }
+
 /* Links and buttons */
 
 .cta-section { display: flex; width: 100% !important; margin: var(--spacing-grid) auto; }
@@ -394,10 +406,12 @@ a:focus, button:focus {
 
 a.btn, button {  
 	padding: var(--spacing-grid) calc(var(--spacing-grid) * 2);
+	font-size: 1rem;
 	font-family: var(--font-main);
 	font-weight: 700;
 	-moz-border-radius: var(--border-radius); -webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
 	border: none; width: fit-content;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
 .light-mode a.btn.primary { background-color: var(--color-black); color: var(--color-white); }
@@ -408,7 +422,7 @@ a.btn.primary.brand { background-color: var(--color-brand); color: var(--color-w
 .dark-mode a.btn.secondary { border: 2px solid var(--color-white); color: var(--color-white); }
 a.btn.primary.secondary { background-color: var(--color-brand); color: var(--color-brand); }
 
-a.btn.tertiary { padding: 10px 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; }
+a.btn.tertiary { padding: 10px 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; box-shadow: none; }
 .light-mode a.btn.tertiary { background-color: transparent; color: var(--color-black); }
 .dark-mode a.btn.tertiary { background-color: transparent; color: var(--color-white); }
 a.btn.tertiary.brand { background-color: transparent; color: var(--color-brand); }
@@ -541,10 +555,19 @@ code span.key { color: var(--color-brand); }
 	.row[multi-tri][tri-one-two-one] div { width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))); }
 	.row[multi-tri][tri-one-two-one] div:nth-child(1) { width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))) !important; }
 	
+	.row[carousel] { 
+		flex-wrap: nowrap; flex-direction: row; overflow-x: scroll; 
+		scroll-snap-type: x mandatory; 
+		-webkit-scroll-snap-scrolling: touch;
+		scroll-padding: 1rem;
+	}
+	.row[carousel]::before { width: 1rem; }
+	.row[carousel]::after { width: 1rem; }
+	.row[carousel] div { width: var(--card-width-mob); scroll-snap-align: center; }
+	
 	.row[form-section] div { width: 100%; }
 	
-	[justify-center-mob]{ justify-content: center; }
-	[align-center-mob]{ align-items: center; }
+	nav [multi-tri] div { margin-inline: 0px; }
 	
 	/* Order Adjustments at Mobile */
 	[order-adjust-mobile] { order: var(--flex-order); }

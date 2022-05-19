@@ -10,9 +10,26 @@
 	--font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	
 	/* Set up color palette */
+	--color-gray: #707070;
+	--color-gray-dark: #505050;
+	--color-black-light: #404040;
 	--color-black: #202020;
-	--color-white: #fff;
+	--color-black-dark: #000000;
+	/**/
+	--color-white: #f8f8f8;
+	--color-white-dark: #e8e8e8;
+	/**/
+	--color-brand-light: #0F8FCE;
 	--color-brand: #0E75C1;
+	--color-brand-dark: #095A81;
+	/**/
+	--color-red-light: #CE1C11;
+	--color-red: #C11A10;
+	--color-red-dark: #81110B;
+	/**/
+	--color-green-light: #1CCE13;
+	--color-green: #17A710;
+	--color-green-dark: #11810C;
 	
 	/* Set up grid spacing */
 	--spacing-grid: 1rem;

@@ -311,6 +311,26 @@ function formatCode(theSection){
 	theSection.innerHTML = theSection.innerHTML.replaceAll('"elements"', '<br><br><span class="key">"elements"</span>');
 };
 
+// Function that sets up the gallery
+function setupGallery(theGallery){
+	let myGalleryImage = theGallery.querySelector('[gallery-display]');
+	let myGalleryButtons = theGallery.querySelectorAll('[gallery-collection] button');
+	myGalleryButtons.forEach( button => {
+		let myImage = button.getAttribute('gallery-image');
+		button.style.setProperty("--gallery-image", "url(\"" + myImage + "\")");
+		button.addEventListener('click', () => {
+			updateGalleryImage(myImage, myGalleryImage);
+			myGalleryButtons.forEach( button => { button.classList = ''; })
+			button.classList.add('active');
+		});
+	});
+};
+
+//Function that updates the gallery image
+function updateGalleryImage(theImage, theGallery){
+	theGallery.querySelector('img').src = theImage;
+}
+
 // Set the document up
 window.onload = () => {
 	
@@ -321,6 +341,8 @@ window.onload = () => {
 		let mySpinner = document.querySelector('.primary-loader');
 		let navBar = document.querySelector('.nav-bar');
 		let headerModule = document.querySelector('.header-module');
+		
+		document.querySelectorAll('[gallery]').forEach(gallery => { setupGallery(gallery); });
 
 		mySpinner.classList.add('inactive');
 		setTimeout(() => { 

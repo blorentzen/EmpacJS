@@ -93,6 +93,10 @@ footer {
 
 .row[carousel] div { width: var(--card-width); flex-shrink: 0; }
 
+/* Set up video player */
+.row[yt-player] { width: 100%; height: auto; padding-bottom: 56.25%; }
+.row[yt-player] iframe { width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; }
+
 /* Subsets of row types */
 .row[social-bar] { flex-direction: row; }
 .row[form-section] div { width: calc(75% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }

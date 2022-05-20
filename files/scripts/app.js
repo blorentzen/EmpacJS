@@ -105,7 +105,15 @@ function handleButton(theData){
 }
 
 // Handle video
-function handleVideo(theData){}
+function handleVideo(theData){
+	let newElement;
+	if(theData.subtype == 'youtube'){
+		newElement = document.createElement('iframe');
+		newElement.src = 'https://youtube.com/embed/' + theData.video_id;
+		newElement.setAttribute('title', theData.title);
+	};
+	return newElement;
+}
 
 // Create elements based on data input
 function createElement(theData){
@@ -116,6 +124,7 @@ function createElement(theData){
 	if(theData.type == 'image'){ newElement = handleImage(theData); };
 	if(theData.type == 'link'){ newElement = handleLink(theData); };
 	if(theData.type == 'button'){ newElement = handleButton(theData); };
+	if(theData.type == 'video'){ newElement = handleVideo(theData); };
 	return newElement;
 }
 

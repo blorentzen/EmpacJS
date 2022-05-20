@@ -62,7 +62,7 @@ footer {
 
 /* Set up carousel */
 .row[carousel] { 
-	flex-wrap: nowrap; overflow-x: scroll; scroll-padding: var(--spacing-grid); padding: var(--spacing-grid); 
+	flex-wrap: nowrap; overflow-x: auto; scroll-padding: var(--spacing-grid); padding: var(--spacing-grid); 
 	scrollbar-width: 10px; scrollbar-color: var(--color-gray) var(--color-white-dark);
 }
 
@@ -77,7 +77,7 @@ footer {
 }
 
 [carousel]::-webkit-scrollbar-thumb { 
-	border: 2px solid transparent;
+	border: 3px solid var(--color-white-dark);
 	-webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
 	background: var(--color-gray); transition: 0.25s; -webkit-transition: 0.25s; 
 }
@@ -384,7 +384,7 @@ nav {
 
 nav::-webkit-scrollbar { display: none; }
 
-nav.active { height: 100vh; overflow-y: scroll; -moz-transition: height .75s; -webkit-transition: height .75s; transition: height .75s; }
+nav.active { height: 100vh; overflow-y: auto; -moz-transition: height .75s; -webkit-transition: height .75s; transition: height .75s; }
 
 nav .container { 
 	margin-inline: auto; margin-top: 100px; 
@@ -475,19 +475,47 @@ button.primary.secondary { background-color: var(--color-brand); color: var(--co
 	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
 }
 
+[gallery] [gallery-collection] { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; }
+
 [gallery] [gallery-collection] button {
 	width: var(--button-width); height: var(--button-width);
 	margin-right: 1rem; color: transparent;
 	background-image: var(--gallery-image);
 	background-size: cover; background-position: center center;
 	box-shadow: inset 0px 0px 0px 2px var(--color-white);
-	border: 2px solid transparent;
+	border: 2px solid var(--color-black);
+	flex-shrink: 0;
 }
 
 [gallery] [gallery-collection] button.active {
 	border: 2px solid var(--color-brand);
 	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
 }
+
+[gallery] [gallery-collection]::-webkit-scrollbar { 
+	height: 10px; background: var(--color-white-dark); 
+	-webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
+}
+
+[gallery] [gallery-collection]::-webkit-scrollbar-track { 
+	background: var(--color-white-dark); 
+	-webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
+}
+
+[gallery] [gallery-collection]::-webkit-scrollbar-thumb { 
+	border: 2px solid var(--color-white-dark);
+	-webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
+	background: var(--color-gray); transition: 0.25s; -webkit-transition: 0.25s; 
+}
+
+[gallery] [gallery-collection]::-webkit-scrollbar-thumb:hover { 
+	background: var(--color-black); transition: 0.25s; -webkit-transition: 0.25s; 
+	cursor: grab;
+}
+
+[gallery] [gallery-collection]::before { position: absolute; left: -1px; height: calc(100% - 10px); width:1.5rem; background: linear-gradient(to right, var(--color-white), transparent); content: ''; }
+
+[gallery] [gallery-collection]::after { position: absolute; right: -1px; height: calc(100% - 10px); width: 1.5rem; background: linear-gradient(to left, var(--color-white), transparent); content: ''; }
 
 /* Background Images */
 
@@ -504,13 +532,38 @@ div[color-overlay] { width: 100%; }
 pre, code { width: 100%; }
 
 pre { 
-	overflow-y: scroll; max-height: 450px; width: calc(100% - 2rem);
+	overflow-y: auto; max-height: 450px; width: calc(100% - 2rem);
 	padding: 1rem;
 	background-color: var(--color-black);
 	white-space: normal;
 	-moz-border-radius: var(--border-radius); 
 	-webkit-border-radius: var(--border-radius);
 	border-radius: var(--border-radius); 
+}
+
+pre::-webkit-scrollbar {
+	height: 10px; background: var(--color-black); 
+	-webkit-border-radius: 0px var(--border-radius) var(--border-radius) 0px;
+	-moz-border-radius: 0px var(--border-radius) var(--border-radius) 0px;
+	border-radius: 0px var(--border-radius) var(--border-radius) 0px;
+}
+
+pre::-webkit-scrollbar-track{
+	background: var(--color-black); 
+	-webkit-border-radius: 0px var(--border-radius) var(--border-radius) 0px;
+	-moz-border-radius: 0px var(--border-radius) var(--border-radius) 0px;
+	border-radius: 0px var(--border-radius) var(--border-radius) 0px;
+}
+
+pre::-webkit-scrollbar-thumb {
+	border: 3px solid var(--color-black);
+	-webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
+	background: var(--color-white-dark); transition: 0.25s; -webkit-transition: 0.25s; 
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+	background: var(--color-white); transition: 0.25s; -webkit-transition: 0.25s; 
+	cursor: grab;
 }
 
 code {
@@ -603,7 +656,7 @@ code span.key { color: var(--color-brand); }
 	.row[multi-tri][tri-one-two-one] div:nth-child(1) { width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))) !important; }
 	
 	.row[carousel] { 
-		flex-wrap: nowrap; flex-direction: row; overflow-x: scroll; 
+		flex-wrap: nowrap; flex-direction: row; overflow-x: auto; 
 		scroll-snap-type: x mandatory; 
 		-webkit-scroll-snap-scrolling: touch;
 		scroll-padding: 1rem;
@@ -661,6 +714,13 @@ code span.key { color: var(--color-brand); }
 	.cta-section[h-center],
 	.cta-section[h-right] { justify-content: center; }
 	div.cta-section.row { width: 100% !important; }
+	
+	/* Mobile Gallery */
+	
+	[gallery] [gallery-collection] { flex-direction: row; flex-wrap: nowrap; position: relative; }
+	[gallery] [gallery-collection] button { flex-shrink: 0; width: var(--button-width-mob); height: var(--button-width-mob); margin-right: 0.5rem; }
+	[gallery] [gallery-collection]::before { width: 1rem; }
+	[gallery] [gallery-collection]::after { width: 1rem; }
     
 }
 	

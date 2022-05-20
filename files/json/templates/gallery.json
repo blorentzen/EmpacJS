@@ -1,0 +1,61 @@
+{
+	"type":"container",
+	"id":"gallery",
+	"classList":["container"],
+	"attributes":["anim-drop-fade", "custom-margin", "gallery"],
+	"properties":[
+		{ "key":"--padding-mult", "value":"2"},
+		{ "key":"--margin-mult", "value":"2"}
+	],
+	"elements":[ 
+		{
+			"type": "container",
+			"classList": ["content", "row"],
+			"attributes": ["gallery-display"],
+			"elements": [
+				{
+					"type": "image",
+					"alt": "image",
+					"size": "full",
+					"src": ""
+				}
+			]
+		},
+		{
+			"type": "container",
+			"classList": ["content", "row"],
+			"attributes": ["gallery-collection", "custom-padding"],
+			"properties": [
+				{"key": "--padding-mult", "value": "1"},
+				{"key": "--button-width", "value": "100px"},
+				{"key": "--button-width-mob", "value": "100px"}
+			],
+			"elements": [
+				{
+					"type": "button",
+					"content": "Image 1",
+					"aria_label": "Image 1",
+					"attributes": [
+						{"key": "gallery-image", "value": "/files/images/bg/abstract/bg-empac-interconnected-blue.jpg"}
+					]
+				},
+				{
+					"type": "button",
+					"content": "Image 2",
+					"aria_label": "Image 2",
+					"attributes": [
+						{"key": "gallery-image", "value": "/files/images/bg/abstract/bg-empac-interconnected-red.jpg"}
+					]
+				},
+				{
+					"type": "button",
+					"content": "Image 3",
+					"aria_label": "Image 3",
+					"attributes": [
+						{"key": "gallery-image", "value": "/files/images/bg/abstract/bg-empac-interconnected-purple.jpg"}
+					]
+				}
+			]
+		}
+	]
+}

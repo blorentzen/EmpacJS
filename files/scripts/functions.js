@@ -328,11 +328,19 @@ function setupGallery(theGallery){
 			button.classList.add('active');
 		});
 	});
+	// Set up initial state
+	myGalleryButtons[0].classList.add('active');
+	updateGalleryImage(myGalleryButtons[0].getAttribute('gallery-image'), myGalleryImage);
 };
 
 //Function that updates the gallery image
 function updateGalleryImage(theImage, theGallery){
 	theGallery.querySelector('img').src = theImage;
+}
+
+// Function that sets up YouTube Embed
+function setupYTPlayer(thePlayer){
+	
 }
 
 // Set the document up

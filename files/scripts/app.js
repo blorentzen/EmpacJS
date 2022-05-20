@@ -104,6 +104,9 @@ function handleButton(theData){
 	return newElement;
 }
 
+// Handle video
+function handleVideo(theData){}
+
 // Create elements based on data input
 function createElement(theData){
 	let newElement;

@@ -328,7 +328,7 @@ function updateGalleryImage(theImage, theGallery){
 }
 
 // Function that sets up YouTube Embed
-function setupYTPlayer(thePlayer){
+function setupVidPlaylist(){
 	
 }
 
@@ -337,11 +337,6 @@ window.onload = () => {
 	
 	// Display code samples
 	document.querySelectorAll('code').forEach(el => { displayCode(el); });
-	
-	// Turn on videos
-	document.querySelectorAll('[video-player]').forEach(vid => {
-		vid.querySelector('[video-button]').addEventListener('click', () => { playVideo(vid); });
-	});
 	
 	setTimeout(() => {
 		let mySpinner = document.querySelector('.primary-loader');
@@ -390,6 +385,12 @@ window.onload = () => {
 				})
 			}
 		})
+		
+		// Turn on videos
+		document.querySelectorAll('[video-player]').forEach(vid => {
+			vid.querySelector('[video-button]').addEventListener('click', () => { playVideo(vid); });
+		});
+		
 	}, 1000);
 	
 }

@@ -94,6 +94,16 @@ function handleButton(theData){
 			newElement.append(document.createElement('span'));
 			newElement.append(document.createElement('span'));
 			newElement.setAttribute('tabindex', 0);
+			return;
+		}
+		
+		if(theData.subtype == 'image'){
+			newElement = document.createElement('button');
+			let newImg = document.createElement('img');
+			newImg.setAttribute('size', theData.size);
+			newImg.setAttribute('alt', theData.alt_text);
+			newImg.setAttribute('src', theData.src);
+			newElement.append(newImg);
 		}
 	}
 	else {
@@ -111,7 +121,13 @@ function handleVideo(theData){
 		newElement = document.createElement('iframe');
 		newElement.src = 'https://youtube.com/embed/' + theData.video_id;
 		newElement.setAttribute('title', theData.title);
-		newElement.classList.add('shadow-box');
+	} else if (theData.subtype =='standard'){
+		newElement = document.createElement('video');
+		newElement.setAttribute('poster', theData.poster);
+		let vidSource = document.createElement('source');
+		vidSource.setAttribute('src', theData.video_id);
+		vidSource.setAttribute('type', 'video/mp4');
+		newElement.append(vidSource);
 	};
 	return newElement;
 }

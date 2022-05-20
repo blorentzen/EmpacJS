@@ -1,7 +1,7 @@
 {
 	"type":"container",
 	"id":"carousel",
-	"classList":["container", "row"],
+	"classList":["container"],
 	"attributes":["anim-drop-fade", "custom-margin"],
 	"properties":[
 		{ "key":"--padding-mult", "value":"2"}
@@ -18,7 +18,7 @@
 			"elements": [
 				{
 					"type":"container",
-					"classList":["content", "col", "align-center", "justify-center"],
+					"classList":["col", "justify-start"],
 					"attributes":["custom-padding", "order-adjust-mobile"],
 					"elements": [
 						{
@@ -57,7 +57,7 @@
 				},
 				{
 					"type":"container",
-					"classList":["content", "col", "align-center", "justify-center"],
+					"classList":["col", "justify-start"],
 					"attributes":["custom-padding", "order-adjust-mobile"],
 					"elements": [
 						{
@@ -96,7 +96,7 @@
 				},
 				{
 					"type":"container",
-					"classList":["content", "col", "align-center", "justify-center"],
+					"classList":["col", "justify-start"],
 					"attributes":["custom-padding", "order-adjust-mobile"],
 					"elements": [
 						{
@@ -135,7 +135,7 @@
 				},
 				{
 					"type":"container",
-					"classList":["content", "col", "align-center", "justify-center"],
+					"classList":["col", "justify-start"],
 					"attributes":["custom-padding", "order-adjust-mobile"],
 					"elements": [
 						{
@@ -174,7 +174,7 @@
 				},
 				{
 					"type":"container",
-					"classList":["content", "col", "align-center", "justify-center"],
+					"classList":["col", "justify-start"],
 					"attributes":["custom-padding", "order-adjust-mobile"],
 					"elements": [
 						{
@@ -213,7 +213,7 @@
 				},
 				{
 					"type":"container",
-					"classList":["content", "col", "align-center", "justify-center"],
+					"classList":["col", "justify-start"],
 					"attributes":["custom-padding", "order-adjust-mobile"],
 					"elements": [
 						{

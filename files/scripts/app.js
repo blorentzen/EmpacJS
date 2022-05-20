@@ -111,6 +111,7 @@ function handleVideo(theData){
 		newElement = document.createElement('iframe');
 		newElement.src = 'https://youtube.com/embed/' + theData.video_id;
 		newElement.setAttribute('title', theData.title);
+		newElement.classList.add('shadow-box');
 	};
 	return newElement;
 }

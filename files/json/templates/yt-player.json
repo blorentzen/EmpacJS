@@ -1,7 +1,7 @@
 {
 	"type":"container",
 	"id":"ytEmbed",
-	"classList":["container"],
+	"classList":["container", "shadow-box"],
 	"attributes":["anim-drop-fade", "custom-margin", "yt-embed"],
 	"properties":[
 		{ "key":"--padding-mult", "value":"2"},

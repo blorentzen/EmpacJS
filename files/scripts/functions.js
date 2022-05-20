@@ -214,25 +214,14 @@ function checkFormError(theError, theInput){
 }
 
 // Function that handles the play/pause of a video
-function playVideo(theVideo){
-    let mySection = document.getElementById(theVideo);
-    let myOverlay = mySection.getElementsByClassName('vid-blackout');
-    let myImg = mySection.getElementsByTagName('img');
-    let myVid = mySection.getElementsByTagName('video');
-    
-    if(myVid[0].paused){ 
-        myVid[0].play(); 
-        myImg[0].src = '../files/icons/2020/standard/white/pause-icon.svg';
-        if(!myOverlay[0].classList.contains('active')){
-            myOverlay[0].classList.add('active');
-        }
-    }
-    else { 
-        myVid[0].pause(); 
-        myImg[0].src = '../files/icons/2020/standard/white/play-icon.svg';
-        if(myOverlay[0].classList.contains('active')){
-            myOverlay[0].classList.remove('active');
-        }
+function playVideo(theVideoSection){
+    let myButton = theVideoSection.querySelector('[video-button]');
+    let myVideo = theVideoSection.querySelector('video');
+    if(myVideo.paused){ 
+        myVideo.play(); 
+		myVideo.setAttribute('controls', true);
+		theVideoSection.classList.toggle('active');
+		setTimeout(() => { myButton.style.display = 'none' }, 275);
     }
 }
 
@@ -348,6 +337,11 @@ window.onload = () => {
 	
 	// Display code samples
 	document.querySelectorAll('code').forEach(el => { displayCode(el); });
+	
+	// Turn on videos
+	document.querySelectorAll('[video-player]').forEach(vid => {
+		vid.querySelector('[video-button]').addEventListener('click', () => { playVideo(vid); });
+	});
 	
 	setTimeout(() => {
 		let mySpinner = document.querySelector('.primary-loader');

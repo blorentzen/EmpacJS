@@ -545,7 +545,15 @@ button.primary.secondary { background-color: var(--color-brand); color: var(--co
 	opacity: 0.5; transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
 }
 
-[video-player] video { width: 100%; position: relative; z-index: 50}
+[video-player] video { 
+	width: 100%; position: relative; z-index: 50;
+	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s; 
+}
+
+[video-player] video:hover { 
+	opacity: 0.75; cursor: pointer;  
+	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s; 
+}
 
 /* Background Images */
 

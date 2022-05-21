@@ -4,7 +4,7 @@
 import { EmpacLoader } from '/files/scripts/modules.js';
 
 // Data Driven Components
-import { EmpacModule } from '/files/scripts/modules.js';
+import { EmpacModule, EmpacContent } from '/files/scripts/modules.js';
 
 // Functions to make custom modules render
 // Handlers for different elements
@@ -146,7 +146,7 @@ function createElement(theData){
 }
 
 /** Function that gets data from the server */
-export async function getData(theData, theType){
+export async function getData(theData, theType, theSubType){
 	let url = '/files/json/';
 	if(theType != undefined){ url += theType; url += '/'; }
 	else { url += 'modules/'; };
@@ -154,40 +154,52 @@ export async function getData(theData, theType){
 	url += '.json';
 	let request = new Request(url);
 	let response = await fetch(request);
-	return await response.json();
+	if(theSubType == undefined){ return await response.json(); }
+	else if(theSubType != undefined){ return await response.json()[theSubType]; };
 }
 
 /** Function that handles data driven components */
 export function handleData(theData){
 	// Create new element
-	let newElement = createElement(theData);
+	let newElement;
 	
-	// Handle attributes
-	if(theData.attributes != undefined){
-		theData.attributes.forEach((attr) => {
-			if(attr.key != undefined){
-				newElement.setAttribute(attr.key, attr.value);
-			}
-			else { newElement.setAttribute(attr, true); };
-		});
-	};
+	if(theData.type != "snippet"){
+		newElement = createElement(theData);
 
-	// Handle classes
-	if(theData.classList != undefined){
-		theData.classList.forEach((newClass) => {
-			newElement.classList.add(newClass);
-		});
-	};
+		// Handle attributes
+		if(theData.attributes != undefined){
+			theData.attributes.forEach((attr) => {
+				if(attr.key != undefined){
+					newElement.setAttribute(attr.key, attr.value);
+				}
+				else { newElement.setAttribute(attr, true); };
+			});
+		};
 
-	// Handle properties
-	if(theData.properties != undefined){
-		theData.properties.forEach((prop) => {
-			newElement.style.setProperty(prop.key, prop.value);
-		});
-	};
+		// Handle classes
+		if(theData.classList != undefined){
+			theData.classList.forEach((newClass) => {
+				newElement.classList.add(newClass);
+			});
+		};
+
+		// Handle properties
+		if(theData.properties != undefined){
+			theData.properties.forEach((prop) => {
+				newElement.style.setProperty(prop.key, prop.value);
+			});
+		};
+
+		// Set the element with type
+		newElement.setAttribute('ejs-type', theData.type);
+	}
 	
-	// Set the element with type
-	newElement.setAttribute('ejs-type', theData.type);
+	if(theData.type == "snippet"){
+		newElement = document.createElement('ejs-content');
+		newElement.setAttribute('data', theData.data);
+		newElement.setAttribute('data-type', 'content');
+		newElement.setAttribute('data-subtype', theData.subtype);
+	};
 	
 	// Return new element
 	return newElement;
@@ -196,3 +208,4 @@ export function handleData(theData){
 /** Define custom components **/
 window.customElements.define('ejs-loader', EmpacLoader);
 window.customElements.define('ejs-module', EmpacModule);
+window.customElements.define('ejs-content', EmpacContent);

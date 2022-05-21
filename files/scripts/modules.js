@@ -32,7 +32,7 @@ export class EmpacLoader extends HTMLElement {
 	}
 }
 
-/** Class for generating a primary hero module 
+/** Class for generating a primary content module 
 * @author Britton Lorentzen <brittonlorentzen@gmail.com
 */
 export class EmpacModule extends HTMLElement {
@@ -49,6 +49,28 @@ export class EmpacModule extends HTMLElement {
 			getData(dataString, dataType).then(function(value){ 
 				newData = value;
 			}).finally(() => { this.append(handleData(newData)); });
+		}
+	}
+}
+
+/** Class for generating a primary content module 
+* @author Britton Lorentzen <brittonlorentzen@gmail.com
+*/
+export class EmpacContent extends HTMLElement {
+	constructor(){
+		super();
+	}
+	connectedCallback() {
+		// Set component based on data
+		let newData;
+		
+		if(this.getAttribute('data') != undefined){
+			let dataString = this.getAttribute('data');
+			let dataType = this.getAttribute('data-type');
+			let subType = this.getAttribute('data-subtype');
+			getData(dataString, dataType).then(function(value){ 
+				newData = value;
+			}).finally(() => { this.append(handleData(newData[subType])); });
 		}
 	}
 }

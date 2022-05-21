@@ -18,32 +18,32 @@
 				{
 					"type": "snippet",
 					"subtype": "multi",
-					"data": "test-content"
+					"data": "brand-design"
 				},
 				{
 					"type": "snippet",
 					"subtype": "multi",
-					"data": "test-content"
+					"data": "logo-design"
 				},
 				{
 					"type": "snippet",
 					"subtype": "multi",
-					"data": "test-content"
+					"data": "responsive-web-design"
 				},
 				{
 					"type": "snippet",
 					"subtype": "multi",
-					"data": "test-content"
+					"data": "uxui-design"
 				},
 				{
 					"type": "snippet",
 					"subtype": "multi",
-					"data": "test-content"
+					"data": "digital-marketing"
 				},
 				{
 					"type": "snippet",
 					"subtype": "multi",
-					"data": "test-content"
+					"data": "social-marketing"
 				}
 			]
 		}

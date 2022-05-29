@@ -1,0 +1,42 @@
+{
+	"multi": {
+		"type":"container",
+		"classList":["col", "justify-start", "text-center"],
+		"attributes":["custom-padding"],
+		"elements": [
+			{
+				"type": "image", 
+				"alt": "website",
+				"size": "large",
+				"src": "/files/images/icons/marketing/black/strategy-icon.svg",
+				"attributes": ["custom-margin"],
+				"properties": [{"key": "--margin-mult", "value": "1" }]
+			},
+			{
+				"type":"headline",
+				"tag":"h3",
+				"size":"medium",
+				"content":"Optimization"
+			},
+			{
+				"type":"text",
+				"tag":"p",
+				"content":"There's a whole lot you can do to improve your reach. We'll work with you to audit your current marketing and find ways to improve your message and delivery."
+			},
+			{
+				"type":"container",
+				"classList":["cta-section", "row", "align-center"],
+				"attributes":["h-center"],
+				"elements":[
+					{
+						"type":"link",
+						"classList":["btn", "primary", "brand"],
+						"content":"See marketing services",
+						"aria_label":"Click to check out marketing services",
+						"href": "/services/marketing/"
+					}
+				]
+			}
+		]
+	}
+}

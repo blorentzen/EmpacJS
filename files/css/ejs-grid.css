@@ -1,0 +1,241 @@
+@charset "UTF-8";
+/* EJS Grid Structure by Britton Lorentzen [brittonlorentzen@gmail.com, blorentz.com] */
+
+/* Setup Website */
+
+html, div, span, iframe, h1, h2, h3, h4, h5, h6, p, font, img, q, ol, li, ul, form, label, body {
+	border: 0; padding: 0; margin: 0; outline: 0;
+	vertical-align: baseline; background: transparent;
+}
+
+/* Set Base Layout */
+
+html { 
+	font-size: 16px; 
+	font-family: var(--font-main);
+	font-weight: 500;
+	line-height: 1.6em;
+}
+
+body { 
+	/* Set primary padding / margin multiple */
+	--padding-mult: 1; --margin-mult: 1;
+	width: 100%; display: block; position: relative; 
+	background-color: var(--color-white);
+}
+
+footer { 
+	width: calc(100% - calc(var(--spacing-grid) * var(--padding-mult))); 
+	max-width: 1620px; display: flex; flex-direction: column; 
+	justify-content: center; align-items: center; margin-inline: auto; 
+}
+
+.container { 
+	width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); 
+	max-width: 1620px; margin-inline: auto; 
+}
+
+.module { -moz-border-radius: var(--border-radius); -webkit-border-radius: var(--border-radius); border-radius: var(--border-radius); }
+.row { display: flex; flex-direction: row; flex-wrap: wrap; }
+.col { display: flex; flex-direction: column; }
+
+/* Set up multicolumn structure */
+.row[multi-dual] div { width: calc(50% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+.row[multi-tri] div { width: calc(33% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+.row[multi-quad] div { width: calc(25% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+
+.row[multi-dual] ejs-content { width: 50%; }
+.row[multi-tri] ejs-content { width: 33%; }
+.row[multi-quad] ejs-content { width: 25%; }
+
+/* Subsets of multi-columns */
+/* Standard Dual */
+
+.row[multi-dual][dual-one-three] div:first-child { width: calc(25% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+.row[multi-dual][dual-one-three] div:last-child { width: calc(75% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+
+.row[multi-dual][dual-three-one] div:first-child { width: calc(75% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+.row[multi-dual][dual-three-one] div:last-child { width: calc(25% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+
+/* EJS Dual */
+
+.row[multi-dual][dual-one-three] ejs-content:first-child { width: 25%; }
+.row[multi-dual][dual-one-three] ejs-content:last-child { width: 75%; }
+
+.row[multi-dual][dual-three-one] ejs-content:first-child { width: 75%; }
+.row[multi-dual][dual-three-one] ejs-content:last-child { width: 25%; }
+
+/* Standard Tri */
+
+.row[multi-tri][tri-one-one-two] div { width: calc(25% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+.row[multi-tri][tri-one-one-two] div:last-child { width: calc(50% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+
+.row[multi-tri][tri-two-one-one] div { width: calc(25% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+.row[multi-tri][tri-two-one-one] div:first-child { width: calc(50% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+
+.row[multi-tri][tri-one-two-one] div { width: calc(25% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+.row[multi-tri][tri-one-two-one] div:nth-child(2) { width: calc(50% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+
+/* EJS Tri */
+
+.row[multi-tri][tri-one-one-two] ejs-content { width: 25%; }
+.row[multi-tri][tri-one-one-two] ejs-content:last-child { width: 50%; }
+
+.row[multi-tri][tri-two-one-one] div { width: 25%; }
+.row[multi-tri][tri-two-one-one] ejs-content:first-child { width: 50%; }
+
+.row[multi-tri][tri-one-two-one] div { width: 25%; }
+.row[multi-tri][tri-one-two-one] ejs-content:nth-child(2) { width: 50%; }
+
+/* Reset rows if ejs content */
+.row[multi-dual] ejs-content div,
+.row[multi-tri] ejs-content div,
+.row[multi-quad] ejs-content div { width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+
+/* Set up carousel */
+.container.has_carousel { width: 100% !important; }
+
+.row[carousel] { 
+	flex-wrap: nowrap; overflow-x: auto; scroll-padding: var(--spacing-grid); padding: var(--spacing-grid); 
+	scrollbar-width: 10px; scrollbar-color: var(--color-gray) var(--color-white-dark);
+}
+
+[carousel]::-webkit-scrollbar { 
+	height: 10px; background-color: var(--color-white-dark); 
+	-webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
+}
+
+[carousel]::-webkit-scrollbar-track { 
+	background-color: var(--color-white-dark); 
+	-webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
+}
+
+[carousel]::-webkit-scrollbar-thumb { 
+	border: 2px solid var(--color-white-dark);
+	-webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
+	background-color: var(--color-gray); transition: 0.25s; -webkit-transition: 0.25s; 
+}
+
+[carousel]::-webkit-scrollbar-thumb:hover { 
+	background-color: var(--color-black); transition: 0.25s; -webkit-transition: 0.25s; 
+	cursor: grab;
+}
+
+.row[carousel]::before { position: absolute; left: -1px; top: 0px; height: calc(100% - 10px); width: 2rem; background: linear-gradient(to right, var(--color-white), transparent); content: ''; }
+
+.row[carousel]::after { position: absolute; right: -1px; top: 0px; height: calc(100% - 10px); width: 2rem; background: linear-gradient(to left, var(--color-white), transparent); content: ''; }
+
+.row[carousel] div { width: var(--card-width); flex-shrink: 0; margin-right: var(--spacing-grid); }
+
+/* Set for EJS Content */
+.row[carousel] div { margin-right: 0px; }
+.row[carousel] ejs-content { margin-right: var(--spacing-grid); }
+
+/* Subsets of row types */
+.row[social-bar] { flex-direction: row; }
+.row[form-section] div { width: calc(75% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 2))); }
+
+/* Flexbox Specific */
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-spacebw { justify-content: space-between; }
+.justify-spacebw div { margin: 0px auto; }
+
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+
+/* Padding specs */
+[custom-padding] { padding: calc(var(--spacing-grid) * var(--padding-mult)); }
+[add-gutter] [custom-padding] { padding: calc(var(--spacing-grid) * calc(var(--padding-mult) / 2)); }
+
+/* Maring specs */
+[custom-margin] { margin: calc(var(--spacing-grid) * var(--margin-mult)) auto; }
+
+.no-margin { margin: 0px; }
+.center-margin { margin-inline: auto; }
+
+/* Standard Desktop */
+
+@media only screen and (max-width: 1440px) { }
+
+/* Smaller Desktop */
+
+@media only screen and (max-width: 1280px) { }
+
+/* Tablet Breakpoints */
+
+@media only screen and (max-width: 1024px) { }
+
+@media only screen and (max-width: 768px) { }
+	
+/* Mobile Breakpoints */
+
+@media only screen and (max-width: 640px) {
+	
+	.container { width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult)))) !important; }
+	footer { width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult)))) !important; }
+	
+	.row { display: flex; flex-direction: column; }
+	
+	/* Set up multicolumn structure */
+	
+	.row[multi-dual] div,
+	.row[multi-tri] div,
+	.row[multi-quad] div { 
+		width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))) !important; 
+	}
+	
+	.row[multi-dual] ejs-content,
+	.row[multi-tri] ejs-content,
+	.row[multi-quad] ejs-content { width: 100%; }
+	
+	/* Multicolumn Subsets */
+	/* Standard Dual */
+	
+	.row[multi-dual][dual-one-three] div:first-child,
+	.row[multi-dual][dual-one-three] div:last-child,
+	.row[multi-dual][dual-three-one] div:first-child,
+	.row[multi-dual][dual-three-one] div:last-child { 
+		width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))) !important; 
+	}
+
+	/* Standard Tri */
+	
+	.row[multi-tri][tri-one-one-two] div,
+	.row[multi-tri][tri-one-one-two] div:last-child,
+	.row[multi-tri][tri-two-one-one] div,
+	.row[multi-tri][tri-two-one-one] div:first-child,
+	.row[multi-tri][tri-one-two-one] div,
+	.row[multi-tri][tri-one-two-one] div:nth-child(1) { 
+		width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))); 
+	}
+	
+	/* Reset rows if ejs content */
+	.row[multi-dual] ejs-content div,
+	.row[multi-tri] ejs-content div,
+	.row[multi-quad] ejs-content div { width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))); }
+	
+	/* Carousel */
+	.row[carousel] { 
+		flex-wrap: nowrap; flex-direction: row; overflow-x: auto; 
+		scroll-snap-type: x mandatory; 
+		-webkit-scroll-snap-scrolling: touch;
+		scroll-padding: 1rem;
+	}
+	.row[carousel]::before { width: 1rem; padding: 1px; displday: block; background: transparent; position: relative; left: 0px; }
+	.row[carousel]::after { width: 1rem; padding: 1px; displday: block; background: transparent; position: relative; right: 0px; }
+	.row[carousel] div { width: var(--card-width-mob); scroll-snap-align: center; }
+	
+	.row[form-section] div { width: 100%; }
+	
+	[custom-padding] { padding: calc(var(--spacing-grid) * calc(var(--padding-mult) / 2)); }
+	
+}
+	
+	
+@media only screen and (max-width: 480px) { }
+	
+
+@media only screen and (max-width: 375px) { }

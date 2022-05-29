@@ -1,0 +1,102 @@
+@charset "UTF-8";
+/* Buttons Stylesheet for Empac.co */
+/* By Britton Lorentzen [brittonlorentzen@gmail.com, blorentz.com] */
+
+.cta-section { display: flex; width: 100% !important; margin: var(--spacing-grid) auto; }
+
+.cta-section[h-left] { justify-content: flex-start; }
+.cta-section[h-center] { justify-content: center; }
+.cta-section[h-right] { justify-content: flex-end; }
+
+a, button { display: flex; height: auto; width: fit-content; transition: 0.2s; -moz-transition: 0.2s; -webkit-transition: 0.2s;  }
+
+a:link { 
+	text-decoration: none; cursor: pointer; opacity: 1; 
+	transition: 0.2s; -moz-transition: 0.2s; -webkit-transition: 0.2s; 
+}
+
+a[inactive]:link { cursor: default; opacity: 1; }
+
+a:visited { text-decoration: none; }
+
+a:hover, button:hover { 
+	text-decoration: none; cursor: pointer; opacity: 0.5; 
+	transition: 0.2s; -moz-transition: 0.2s; -webkit-transition: 0.2s; 
+}
+
+a[inactive]:hover, button[inactive]:hover { cursor: default; opacity: 1; }
+
+a:active, button:active { text-decoration: none; opacity: 0.2; }
+
+a:focus, button:focus {
+	opacity: 0.5; transition: 0.2s; -moz-transition: 0.2s; -webkit-transition: 0.2s; 
+}
+
+a.btn, button {  
+	padding: var(--spacing-grid) calc(var(--spacing-grid) * 2);
+	font-size: 1rem;
+	font-family: var(--font-main);
+	font-weight: 700;
+	-moz-border-radius: var(--border-radius); -webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
+	border: none; width: fit-content;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.light-mode a.btn.primary { background-color: var(--color-black); color: var(--color-white); }
+.dark-mode a.btn.primary { background-color: var(--color-white); color: var(--color-black); }
+a.btn.primary.brand { background-color: var(--color-brand); color: var(--color-white); }
+
+.light-mode a.btn.secondary { border: 2px solid var(--color-black); color: var(--color-black); }
+.dark-mode a.btn.secondary { border: 2px solid var(--color-white); color: var(--color-white); }
+a.btn.primary.secondary { background-color: var(--color-brand); color: var(--color-brand); }
+
+a.btn.tertiary { padding: 10px 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; box-shadow: none; }
+.light-mode a.btn.tertiary { background-color: transparent; color: var(--color-black); }
+.dark-mode a.btn.tertiary { background-color: transparent; color: var(--color-white); }
+a.btn.tertiary.brand { background-color: transparent; color: var(--color-brand); }
+
+a.btn.tertiary:after { 
+	content: '\203A'; margin-left: 5px; 
+	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;  
+}
+
+a.btn:hover.tertiary:after { margin-left: 10px; transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;  }
+
+.light-mode button.primary { background-color: var(--color-black); color: var(--color-white); }
+.dark-mode button.primary { background-color: var(--color-white); color: var(--color-black); }
+button.primary.brand { background-color: var(--color-brand); color: var(--color-white); }
+
+.light-mode button.secondary { border: 2px solid var(--color-black); color: var(--color-black); }
+.dark-mode button.secondary { border: 2px solid var(--color-white); color: var(--color-white); }
+button.primary.secondary { background-color: var(--color-brand); color: var(--color-brand); }
+
+/* Standard Desktop */
+
+@media only screen and (max-width: 1440px) { }
+
+/* Smaller Desktop */
+
+@media only screen and (max-width: 1280px) { }
+
+/* Tablet Breakpoints */
+
+@media only screen and (max-width: 1024px) { }
+
+@media only screen and (max-width: 768px) { }
+	
+/* Mobile Breakpoints */
+
+@media only screen and (max-width: 640px) {
+	
+	.cta-section[h-left],
+	.cta-section[h-center],
+	.cta-section[h-right] { justify-content: center; }
+	div.cta-section.row { width: 100% !important; }
+    
+}
+	
+	
+@media only screen and (max-width: 480px) { }
+	
+
+@media only screen and (max-width: 375px) { }

@@ -4,16 +4,15 @@
 		<title>EmpacJS | Framework</title>
 
 		<!-- Regular META -->
-
 		<meta name="author" content="Britton Lorentzen"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"/>
 		<meta charset="UTF-8">
 		<meta name="robots" content="index, follow"/>
 		<meta name="description" content="A lightweight framework and design system for small business websites that don't need the bells and whistles of a typical framework."/>
 		<meta name="keywords" content="consulting, digital design, graphic design, web design, marketing services, seattle, tacoma, bonney lake, lake tapps, puyallup, auburn, kent, federal way, sumner, gig harbor, washington"/>
+		<meta name="theme-color" content="#000000" >
 
 		<!-- OpenGraph META -->
-
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:site_name" content="Empac" />
 		<meta property="og:title" content="EmpacJS | Framework"/>
@@ -23,36 +22,26 @@
 		<meta property="og:url" content="https://js.empac.co/"/>
 
 		<!-- Twitter Card Markup -->
-
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@emeraldpacific" />
 		<meta name="twitter:creator" content="@emeraldpacific" />
 
 		<!-- Stylesheets and Javascript --> 
-
 		<link rel="shortcut icon" href="/files/images/browser/empac-logo-browser.jpg"> 
+		<link rel="stylesheet" type="text/css" href="/files/css/styles.css" />
+		<script type="module" src="/files/empacjs/app.js"></script>
+		<script type="text/javascript" src="/files/empacjs/functions.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="/files/css/variables.css" />
-		<link rel="stylesheet" type="text/css" href="/files/css/empac-2022.css" />
-		<link rel="stylesheet" type="text/css" href="/files/css/form-styling.css" />
-		<link rel="stylesheet" type="text/css" href="/files/css/code-style.css" />
-		<link rel="stylesheet" href="https://use.typekit.net/rgx3lyo.css">
-		<script type="module" src="/files/scripts/app.js"></script>
-		<script type="text/javascript" src="/files/scripts/functions.js"></script>
-		<meta name="theme-color" content="#000000" >
 
-		<!-- Google Scripts -->
+		<!-- Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KS85CE5X4"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-
-		  gtag('config', 'G-3KS85CE5X4');
-		</script>
+		<script type="text/javascript" src="/files/empacjs/analytics.js"></script>
 
 		<!-- Set Canonical -->
 		<link rel="canonical" href="https://js.empac.co/" />
+		
+		<!-- Google Scripts -->
+		<meta name="google-site-verification" content="x2x3TphqODtVaipuibKXFMIVtyAR0loUnznhz4cEnYw" />
 
 	</head>
 
@@ -73,13 +62,13 @@
 		</div>
 		
 		<!-- Framework Module -->
-		<ejs-module data="framework-module"></ejs-module>
+		<ejs-module data="framework" data-dir="empacjs"></ejs-module>
 		
 		<!-- Data Driven Module -->
-		<ejs-module data="empacjs-data_driven"></ejs-module>
+		<ejs-module data="data_driven" data-dir="empacjs"></ejs-module>
 		
 		<!-- Open Source Module -->
-		<ejs-module data="empacjs-github"></ejs-module>
+		<ejs-module data="github" data-dir="empacjs"></ejs-module>
 		
 		<!-- Sample Code -->
 		<div class="container row justify-center align-center" style="--padding-mult: 1; --margin-mult: 2;" custom-margin anim-drop-fade>
@@ -87,7 +76,7 @@
 				<!-- Code -->
 				<div class="content col align-center justify-start" custom-padding order-adjust-mobile style="--flex-order: 2;">
 					<pre class="shadow-box">
-						<code sample="empacjs-data_driven">
+						<code sample="data_driven" data-dir="empacjs">
 						</code>
 					</pre>
 				</div>

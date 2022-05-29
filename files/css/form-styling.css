@@ -58,19 +58,19 @@ form div.custom-input input:focus, form div.custom-input.active input {
 
 /* Show Error States */
 form div.custom-input input.error { 
-	outline: 2px solid #ff0000; 
+	outline: 2px solid var(--color-red); 
 	-moz-border-radius: var(--border-radius); -webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
 	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s; 
 }
 
 form div.custom-input input.error ~ label { 
-	color: #ff0000; 
+	color: var(--color-red); 
 	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
 }
 
 form div.custom-input input.error ~ label::after {
-	content: '\0021'; color: #ff0000; font-size: 1rem;
-	margin-left: 10px; padding: 1px 8px; font-weight: 700; border: 2px solid #ff0000;
+	content: '\0021'; color: var(--color-red); font-size: 1rem;
+	margin-left: 10px; padding: 1px 8px; font-weight: 700; border: 2px solid var(--color-red);
 	-moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
 	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
 }

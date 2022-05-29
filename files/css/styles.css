@@ -1,0 +1,222 @@
+@charset "UTF-8";
+/* Primary Stylesheet for Empac.co */
+/* By Britton Lorentzen [brittonlorentzen@gmail.com, blorentz.com] */
+
+/* Import dependent files */
+@import "./variables.css";
+@import "./ejs-grid.css";
+@import "./typography.css";
+@import "./images.css";
+@import "./buttons.css";
+@import "./navigation.css";
+@import "./forms.css";
+@import "./gallery.css";
+@import "./video-player.css";
+@import "./code-style.css";
+@import "https://use.typekit.net/rgx3lyo.css";
+
+/* EmpacJS Banner */
+@import "./empac_js-banner.css";
+
+/* Modal Setup */
+.modal-section { 
+	display: none; justify-content: center; align-items: center;
+	width: 100%; height: 100%; opacity: 0;
+	position: fixed; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.75);
+	-moz-transition: 0.5s; -webkit-transition: 0.5s; transition: 0.5s;
+	z-index: 9999;
+}
+
+.modal-section.active { opacity: 1; -moz-transition: 0.5s; -webkit-transition: 0.5s; transition: 0.5s; }
+
+.modal-section .modal-window {
+	position: relative; width: 75%; height: 0vh; background-color: var(--color-white);
+	-moz-transition: 0.5s; -webkit-transition: 0.5s; transition: 0.5s;
+}
+
+.modal-section.active .modal-window {
+	height: 75vh;
+	-moz-transition: 0.5s; -webkit-transition: 0.5s; transition: 0.5s;
+}
+
+.modal-section .modal-window .modal-content { width: 100%; height: 100%; position: relative; overflow: hidden; }
+
+.modal-section .modal-window .modal-close { 
+	width: 30px; height: 30px;
+	display: flex; justify-content: center; align-items: center;
+	position: absolute; top: -10px; right: -10px; 
+	font-size: 25px;
+	padding: 0px; border: none;
+	-moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
+	background: var(--color-brand); color: var(--color-white);
+	font-family: revert;
+	z-index: 1111;
+}
+
+/* M1 specific styling */
+.header-module { 
+	-moz-border-radius: 0px 0px var(--border-radius) var(--border-radius); 
+	-webkit-border-radius: 0px 0px var(--border-radius) var(--border-radius); 
+	border-radius: 0px 0px var(--border-radius) var(--border-radius); 
+	position: relative;
+	opacity: 0; transform: translateY(-30px);
+	-moz-transition: 1s ease-in-out; -webkit-transition: 1s ease-in-out; transition: 1s ease-in-out;
+}
+
+.header-module.active {
+	opacity: 1; transform: translateY(0px);
+	-moz-transition: 1s ease-in-out; -webkit-transition: 1s ease-in-out; transition: 1s ease-in-out;
+}
+
+/* Set custom animations */
+.container[anim-drop-fade] {
+	opacity: 0; transform: translateY(30px);
+	-moz-transition: 1s ease-in-out; -webkit-transition: 1s ease-in-out; transition: 1s ease-in-out;
+}
+
+/* Set custom animations */
+.container.active[anim-drop-fade] {
+	opacity: 1; transform: translateY(0px);
+	-moz-transition: 1s ease-in-out; -webkit-transition: 1s ease-in-out; transition: 1s ease-in-out;
+}
+
+/* Modes for coloring */
+.light-mode { background-color: var(--color-white); }
+.dark-mode { background-color: var(--color-black); }
+
+.dark-mode[bg-color-brand] { background-color: var(--color-brand); }
+
+.shadow-box { box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); }
+.rounded-corners { -webkit-border-radius: var(--border-radius); -moz-border-radius: var(--border-radius); border-radius: var(--border-radius); }
+
+[sticky-dsk]{ position: sticky; top: 120px; }
+
+/* COMING SOON STYLING - TEMPORARY */
+
+.coming-soon {
+	display: block;
+	width: 100%; height: 100vh;
+	background-image: url('https://empac.co/files/images/bg/abstract/empac-coming_soon-banner.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.coming-soon .main-section {
+	display: flex; flex-direction: column; justify-content: center; align-items: center;
+	position: absolute; top: 50%; left: 50%; margin: 0px auto; transform: translate(-50%, -50%); 
+	width: calc(100% - 50px); padding: 25px;
+	text-align: center;
+}
+
+.coming-soon .loader { display: flex; position: relative; width: 200px; height: 200px; }
+
+.coming-soon .loader span { 
+	width: 200px; height: 200px;
+	border: 2px solid var(--color-white); border-left: 2px solid transparent; border-right: 2px solid transparent;
+	-moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
+	animation: loaderSpin 0.5s ease-in-out infinite
+}
+
+@keyframes loaderSpin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+.coming-soon .loader img { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);  }
+
+/* Set up primary loader */
+.primary-loader { 
+	display: flex; position: fixed; top: 0px; left: 0px; width: 100%; height: 100vh; 
+	justify-content: center; align-items: center; z-index: 999;
+	opacity: 1; background-color: var(--color-white); 
+	-moz-transition: 1s; -webkit-transition: 1s; transition: 1s;
+}
+
+.primary-loader.inactive { opacity: 0; -moz-transition: 1s; -webkit-transition: 1s; transition: 1s; }
+
+.primary-loader span { 
+	width: 200px; height: 200px; margin: 0px;
+	border: 2px solid var(--color-black); border-left: 2px solid transparent; border-right: 2px solid transparent;
+	-moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
+	animation: loaderSpin 0.5s ease-in-out infinite;
+}
+
+.primary-loader img { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);  }
+
+/* Set up modal loader */
+.modal-loader { 
+	display: flex; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; 
+	justify-content: center; align-items: center; z-index: 999;
+	opacity: 1; background-color: var(--color-white); 
+	-moz-transition: 1s; -webkit-transition: 1s; transition: 1s;
+}
+
+.modal-loader.inactive { opacity: 0; -moz-transition: 1s; -webkit-transition: 1s; transition: 1s; }
+
+.modal-loader span { 
+	width: 200px; height: 200px; margin: 0px;
+	border: 2px solid var(--color-black); border-left: 2px solid transparent; border-right: 2px solid transparent;
+	-moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
+	animation: loaderSpin 0.5s ease-in-out infinite;
+}
+
+.modal-loader img { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);  }
+
+/* Background Images */
+
+/* Set bg attachment styles */
+.has_bg { background-repeat: no-repeat; background-size: cover; background-image: var(--bg-img); }
+.has_bg[bg-pos] { background-position: var(--bg-pos-dsk); }
+
+/* Color Overlays */
+div[color-overlay] { width: 100%; }
+.has_bg [color-overlay='white'] { background: rgba(255, 255, 255, var(--overlay-opacity)); }
+.has_bg [color-overlay='black'] { background: rgba(0, 0, 0, var(--overlay-opacity)); }
+
+[color-bg="white"] { background: var(--color-white); }
+[color-bg="black"] { background: var(--color-black); }
+
+/* Standard Desktop */
+
+@media only screen and (max-width: 1440px) { }
+
+/* Smaller Desktop */
+
+@media only screen and (max-width: 1280px) { }
+
+/* Tablet Breakpoints */
+
+@media only screen and (max-width: 1024px) { }
+
+@media only screen and (max-width: 768px) { }
+	
+/* Mobile Breakpoints */
+
+@media only screen and (max-width: 640px) {
+	
+	.coming-soon .loader { width: 150px; height: 150px; }
+	.coming-soon .loader span { width: 150px; height: 150px; }
+	
+	/* Order Adjustments at Mobile */
+	[order-adjust-mobile] { order: var(--flex-order); }
+	
+	/* Modal Sizing */
+	.modal-section .modal-window { width: 90%; }
+	.modal-section.active .modal-window { height: 80vh; }
+	
+	/* BG Position Adjustments */
+	.has_bg[bg-img-mob] { background-image: var(--bg-img-mob) !important; }
+	.has_bg[bg-pos] { background-position: var(--bg-pos-mob); }
+	
+	/* Adjust about me headers */
+	[sticky-dsk]{ position: relative; top: 0px; }
+	[sticky-mob]{ position: sticky; top: 71px; }
+    
+}
+	
+	
+@media only screen and (max-width: 480px) { }
+	
+
+@media only screen and (max-width: 375px) { }

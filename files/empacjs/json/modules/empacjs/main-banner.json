@@ -1,0 +1,29 @@
+{
+	"type":"container",
+	"id":"empacJSBanner",
+	"classList":["ejs-banner"],
+	"elements":[ 
+		{
+			"type":"container",
+			"elements":[
+				{
+					"type": "image", 
+					"alt": "empac",
+					"src": "/files/images/icons/company/white/empac-emblem.svg"
+				}
+			]
+		},
+		{
+			"type":"container",
+			"elements":[
+				{
+					"type":"link",
+					"aria-label":"Click to learn more about Empac JS",
+					"content":"Built with EmpacJS",
+					"href":"https://empac.co/apps/empac-js",
+					"target": "_blank"
+				}
+			]
+		}
+	]
+}

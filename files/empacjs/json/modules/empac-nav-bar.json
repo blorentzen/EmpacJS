@@ -1,0 +1,20 @@
+{
+	"type":"container",
+	"id":"empacNavBar",
+	"classList":["nav-bar", "row"],
+	"elements":[
+		{
+			"type":"container",
+			"classList":["container", "row"],
+			"elements":[
+				{
+					"type":"link",
+					"subtype":"image",
+					"src":"/files/images/icons/company/black/empac-emblem.svg",
+					"aria_label":"empac",
+					"href":"https://empac.co"
+				}
+			]
+		}
+	]
+}

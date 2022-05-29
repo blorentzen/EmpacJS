@@ -1,0 +1,123 @@
+@charset "UTF-8";
+/* Typography */
+/* By Britton Lorentzen [brittonlorentzen@gmail.com, blorentz.com] */
+
+/* Import dependent files */
+@import "https://use.typekit.net/rgx3lyo.css";
+
+/* Text Specifics */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+
+/* Typography */
+
+.light-mode { color: var(--color-black); }
+.dark-mode { color: var(--color-white); }
+
+h1, h2 { font-family: var(--font-display); font-weight: 700; line-height: 1.2em; margin-bottom: 1.5rem; }
+h3, h4 { font-weight: 600; line-height: 1.2em; margin-bottom: 1.5rem; }
+h4, h5 { font-weight: 500; line-height: 1.2em; margin-bottom: 1.5rem; }
+
+h1[size="large"], h2[size="large"] { font-size: 4.75rem; }
+h1[size="medium"], h2[size="medium"] { font-size: 4.25rem; }
+h1[size="small"], h2[size="small"] { font-size: 3.75rem; }
+.eyebrow { font-family: var(--font-main); font-weight: 600; font-size: 1rem; margin-bottom: 1.5rem; }
+
+h3[size="large"], h4[size="large"] { font-size: 3.75rem; }
+h3[size="medium"], h4[size="medium"] { font-size: 3.25rem; }
+h3[size="small"], h4[size="small"] { font-size: 2.75rem; }
+
+h5[size="large"], h6[size="large"] { font-size: 2.75rem; }
+h5[size="medium"], h6[size="medium"] { font-size: 2.25rem; }
+h5[size="small"], h6[size="small"] { font-size: 1.75rem; }
+
+p { font-size: 1.25rem; line-height: 1.75em; margin-bottom: 1.5rem; }
+p b { font-weight: 900; }
+
+/* Specific Paragraph Styling */
+p[size="large"] { font-size: 2rem; margin-bottom: 2rem; line-height: 1.5em; font-weight: 400; }
+
+span.nav-heading { font-family: var(--font-display); font-weight: 600; font-size: 3rem; }
+
+/* Set custom attributes */
+[cfs-size] { font-size: var(--cf-size); }
+[cfs-line_height] { line-height: var(--cf-line_height); }
+[cfs-weight] { font-weight: var(--cf-weight); }
+
+/* Standard Desktop */
+
+@media only screen and (max-width: 1440px) {
+	
+	h1[size="large"], h2[size="large"] { font-size: 4rem; }
+	h1[size="medium"], h2[size="medium"] { font-size: 3.5rem; }
+	h1[size="small"], h2[size="small"] { font-size: 3rem; }
+	.eyebrow { font-family: var(--font-main); font-weight: 600; font-size: 1rem; margin-bottom: 1.5rem; }
+
+	h3[size="large"], h4[size="large"] { font-size: 3rem; }
+	h3[size="medium"], h4[size="medium"] { font-size: 2.5rem; }
+	h3[size="small"], h4[size="small"] { font-size: 2rem; }
+
+	h5[size="large"], h6[size="large"] { font-size: 2rem; }
+	h5[size="medium"], h6[size="medium"] { font-size: 1.75rem; }
+	h5[size="small"], h6[size="small"] { font-size: 1.5rem; }
+
+	p { font-size: 1rem; margin-bottom: 2rem; }
+	
+}
+
+/* Smaller Desktop */
+
+@media only screen and (max-width: 1280px) { }
+
+/* Tablet Breakpoints */
+
+@media only screen and (max-width: 1024px) {
+
+	h1[size="large"], h2[size="large"] { font-size: 3.75rem; }
+	h1[size="medium"], h2[size="medium"] { font-size: 3.25rem; }
+    h1[size="small"], h2[size="small"] { font-size: 2.75rem; }
+	.eyebrow { font-size: 0.875rem; }
+
+	h3[size="large"], h4[size="large"] { font-size: 2.75rem; }
+	h3[size="medium"], h4[size="medium"] { font-size: 2.25rem; }
+    h3[size="small"], h4[size="small"] { font-size: 1.75rem; }
+	
+	h5[size="large"], h6[size="large"] { font-size: 1.75rem; }
+    h5[size="medium"], h6[size="medium"] { font-size: 1.5rem; }
+	h5[size="small"], h6[size="small"] { font-size: 1.25rem; }
+    
+    p { font-size: 0.875rem; }
+	
+	span.nav-heading { font-size: 2.5rem; }
+
+}
+
+@media only screen and (max-width: 768px) { }
+	
+/* Mobile Breakpoints */
+
+@media only screen and (max-width: 640px) {
+    
+	h1[size="large"], h2[size="large"] { font-size: 2.5rem; }
+	h1[size="medium"], h2[size="medium"] { font-size: 2.25rem; }
+    h1[size="small"], h2[size="small"] { font-size: 2rem; }
+
+    h3[size="large"], h4[size="large"] { font-size: 2rem; }
+	h3[size="medium"], h4[size="medium"] { font-size: 1.75rem; }
+	h3[size="small"], h4[size="small"] { font-size: 1.5rem; }
+	
+	h5[size="large"], h6[size="large"] { font-size: 1.5rem; }
+    h5[size="medium"], h6[size="medium"] { font-size: 1.25rem; }
+	h5[size="small"], h6[size="small"] { font-size: 1rem; }
+	
+	p[size="large"] { font-size: 1.5rem; }
+	
+	span.nav-heading { font-size: 2rem; }
+    
+}
+	
+	
+@media only screen and (max-width: 480px) { }
+	
+
+@media only screen and (max-width: 375px) { }

@@ -53,13 +53,13 @@
 							"type": "button",
 							"subtype": "carousel-paddle",
 							"scrollDir": "left",
-							"classList": ["primary", "brand"]
+							"classList": ["primary", "brand", "shadow-box"]
 						},
 						{
 							"type": "button",
 							"subtype": "carousel-paddle",
 							"scrollDir": "right",
-							"classList": ["primary", "brand"]
+							"classList": ["primary", "brand", "shadow-box"]
 						}
 					]
 				}

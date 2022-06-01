@@ -70,6 +70,28 @@ button.primary.brand { background-color: var(--color-brand); color: var(--color-
 .dark-mode button.secondary { border: 2px solid var(--color-white); color: var(--color-white); }
 button.primary.secondary { background-color: var(--color-brand); color: var(--color-brand); }
 
+/* Carousel Specific Buttons */
+[carousel] [paddle-section] {
+	display: flex; width: 100% !important; justify-content: space-between;
+	position: absolute; z-index: 1000;
+	top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+
+[carousel] [paddle-section] button { 
+	display: flex; justify-content: center;
+	width: 2rem; height: 2rem; padding: 0px; 
+	font-size: 1.5rem;
+	opacity: 0; transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
+}
+
+[carousel] [paddle-section] button.active {
+	opacity: 1; transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
+}
+
+[carousel] [paddle-section] button.active:hover {
+	opacity: 0.5; transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
+}
+
 /* Standard Desktop */
 
 @media only screen and (max-width: 1440px) { }
@@ -93,6 +115,9 @@ button.primary.secondary { background-color: var(--color-brand); color: var(--co
 	.cta-section[h-right] { justify-content: center; }
 	div.cta-section.row { width: 100% !important; }
     
+	[carousel] [paddle-section],
+	[carousel] [paddle-section] button { display: none; }
+	
 }
 	
 	

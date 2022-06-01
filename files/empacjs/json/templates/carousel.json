@@ -44,6 +44,24 @@
 					"type": "snippet",
 					"subtype": "multi",
 					"data": "social-marketing"
+				},
+				{
+					"type": "container",
+					"attributes": ["paddle-section"],
+					"elements": [
+						{
+							"type": "button",
+							"subtype": "carousel-paddle",
+							"scrollDir": "left",
+							"classList": ["primary", "brand"]
+						},
+						{
+							"type": "button",
+							"subtype": "carousel-paddle",
+							"scrollDir": "right",
+							"classList": ["primary", "brand"]
+						}
+					]
 				}
 			]
 		}

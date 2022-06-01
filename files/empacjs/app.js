@@ -105,6 +105,13 @@ function handleButton(theData){
 			newImg.setAttribute('src', theData.src);
 			newElement.append(newImg);
 		}
+		
+		if(theData.subtype == 'carousel-paddle'){
+			newElement = document.createElement('button');
+			if(theData.scrollDir == 'left'){ newElement.innerHTML = '&lsaquo;' }
+			else if(theData.scrollDir == 'right'){ newElement.innerHTML = '&rsaquo;' };
+			newElement.setAttribute('scroll-direction', theData.scrollDir);
+		}
 	}
 	else {
 		newElement = document.createElement('button');

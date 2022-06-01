@@ -339,6 +339,64 @@ function setupVidPlaylist(){
 	
 }
 
+// Function that sets up carousel paddles
+function setupCarousel(theCarousel){
+	let myButtons = theCarousel.querySelectorAll('[paddle-section] button');
+	// Make carousel scroll on button press
+	myButtons.forEach(btn => { 
+		btn.addEventListener('click', () => { 
+			slideCards(theCarousel, btn.getAttribute('scroll-direction'))
+		}) 
+	});
+	
+	// Set listener for carousel scroll
+	theCarousel.addEventListener('scroll', () => {
+		adjustPaddleVisibility(theCarousel);
+	});
+	
+	// Preset visibility
+	adjustPaddleVisibility(theCarousel);
+}
+
+// Function that moves the carousel
+function slideCards(theCarousel, theDir){
+	let myCurrScroll = theCarousel.scrollLeft;
+	let myScroll = theCarousel.querySelector('ejs-content').offsetWidth;
+	let newPos;
+	if(theDir == 'left'){ newPos = myCurrScroll - myScroll; }
+	else if(theDir == 'right'){ newPos = myCurrScroll + myScroll; }
+	
+	// Go to new position
+	theCarousel.scroll({
+		left: newPos,
+		behavior: 'smooth'
+	});
+}
+
+// Function that shows the paddles depending on scroll position
+function adjustPaddleVisibility(theCarousel){
+	let currScroll = theCarousel.scrollLeft;
+	let myButtons = theCarousel.querySelectorAll('[paddle-section] button');
+	let myContentCards = theCarousel.querySelectorAll('ejs-content');
+	let lastCard = myContentCards[myContentCards.length-1];
+	let myRightBound = lastCard.getBoundingClientRect().right;
+	
+	// Adjust left paddle
+	if(currScroll > 0 && !myButtons[0].classList.contains('active')){ 
+		myButtons[0].classList.add('active');
+	} else if(currScroll == 0 && myButtons[0].classList.contains('active')){
+		myButtons[0].classList.remove('active');
+	}
+	
+	// Adjust right paddle
+	if(myRightBound > window.innerWidth && !myButtons[1].classList.contains('active')){ 
+		myButtons[1].classList.add('active');
+	} else if(myRightBound < window.innerWidth && myButtons[1].classList.contains('active')){
+		myButtons[1].classList.remove('active');
+	}
+	
+}
+
 // Set the document up
 window.onload = () => {
 	
@@ -397,6 +455,10 @@ window.onload = () => {
 		document.querySelectorAll('[video-player]').forEach(vid => {
 			vid.querySelector('[video-button]').addEventListener('click', () => { playVideo(vid); });
 		});
+		
+		// Setup carousels if they have paddles
+		let myCarousels = document.querySelectorAll('[carousel]')
+		myCarousels.forEach(car => { setupCarousel(car) });
 		
 	}, 1000);
 	

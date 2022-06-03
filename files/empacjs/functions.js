@@ -1,9 +1,6 @@
 // Functions for Empac.co
 /** Built by Britton Lorentzen [brittonlorentzen@gmail.com, blorentz.com] */
 
-const GRID_SPACING = 16;
-const GRID_SPACING_2X = 32;
-
 // Function that toggles the navigation menu
 function toggleNav(){
     

@@ -139,6 +139,33 @@ function handleVideo(theData){
 	return newElement;
 }
 
+// Handle Accordion
+function handleAccordion(theData){
+	let newElement;
+	newElement = document.createElement('div');
+	newElement.setAttribute('acc-item', true);
+	
+	// Set up the accordion button
+	let accBtn = document.createElement('button');
+	accBtn.setAttribute('aria-expanded', false);
+	accBtn.innerHTML = theData.label;
+	newElement.append(accBtn);
+	
+	// Set up the accordion content
+	let accContent = document.createElement('div');
+	accContent.classList.add('acc-content');
+	accContent.setAttribute('aria-hidden', true);
+	
+	let contentText = document.createElement('p');
+	contentText.innerHTML = theData.content;
+	
+	// Add content to element and return it
+	accContent.append(contentText);
+	newElement.append(accContent);
+	
+	return newElement;
+}
+
 // Create elements based on data input
 function createElement(theData){
 	let newElement;
@@ -149,6 +176,7 @@ function createElement(theData){
 	if(theData.type == 'link'){ newElement = handleLink(theData); };
 	if(theData.type == 'button'){ newElement = handleButton(theData); };
 	if(theData.type == 'video'){ newElement = handleVideo(theData); };
+	if(theData.type == 'accordion'){ newElement = handleAccordion(theData); };
 	return newElement;
 }
 

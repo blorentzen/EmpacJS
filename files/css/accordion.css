@@ -4,7 +4,6 @@
 
 .accordion-list { 
 	display: flex; flex-direction: column;
-	width: 100% !important;
 	list-style: none;
 }
 
@@ -75,7 +74,7 @@
 
 @media only screen and (max-width: 640px) {
 
-	.accordion-list { width: 100% !important; }
+	.accordion-list { padding-bottom: 0px; }
 	.accordion-list [acc-item] { margin-bottom: 1rem; }
 	.accordion-list [acc-item]:last-child { margin-bottom: 0px; }
 

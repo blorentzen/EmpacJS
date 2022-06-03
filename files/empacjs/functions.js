@@ -486,13 +486,21 @@ window.onload = () => {
 		myCarousels.forEach(car => { setupCarousel(car) });
 		
 		// Setup accordions
-		document.querySelectorAll('.accordion-list [acc-item]').forEach(el => {
-			setAccordionSize(el);
-			window.addEventListener('resize', () => { setAccordionSize(el); });
-			el.querySelector('button').addEventListener('click', () => {
-				toggleAccordion(el);
+		document.querySelectorAll('[accordion]').forEach(accSection => {
+			let myID = accSection.id;
+			
+			// Set up panels
+			document.querySelectorAll('.accordion-list [acc-item]').forEach((el, idx) => {
+				setAccordionSize(el);
+				el.querySelector('button').setAttribute('aria-controls', myID + '-panel-' + idx);
+				el.querySelector('button').setAttribute('id', myID + '-control-' + idx);
+				el.querySelector('.acc-content').setAttribute('id', myID + '-panel-' + idx);
+				window.addEventListener('resize', () => { setAccordionSize(el); });
+				el.querySelector('button').addEventListener('click', () => {
+					toggleAccordion(el);
+				})
 			})
-		})
+		});
 		
 	}, 1000);
 	

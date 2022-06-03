@@ -1,0 +1,63 @@
+{
+	"type":"container",
+	"id":"testAccordion",
+	"classList":["container"],
+	"attributes":["anim-drop-fade", "custom-margin", "accordion"],
+	"properties":[
+		{ "key":"--padding-mult", "value":"2"},
+		{ "key":"--margin-mult", "value":"2"}
+	],
+	"elements":[ 
+		{
+			"type": "container",
+			"classList": ["content", "row"],
+			"attributes": ["multi-dual"],
+			"elements": [
+				{
+					"type": "container",
+					"classList": ["accordion-list"],
+					"attributes": ["custom-padding"],
+					"elements": [
+						{
+							"type": "accordion",
+							"label": "What is an accordion?",
+							"content": "An accordion is typically used for FAQs. So if your customer has questions about certain products or services, they would go to your FAQ section to learn more about it."
+						},
+						{
+							"type": "accordion",
+							"label": "What is an accordion?",
+							"content": "An accordion is typically used for FAQs. So if your customer has questions about certain products or services, they would go to your FAQ section to learn more about it."
+						},
+						{
+							"type": "accordion",
+							"label": "What is an accordion?",
+							"content": "An accordion is typically used for FAQs. So if your customer has questions about certain products or services, they would go to your FAQ section to learn more about it."
+						}
+					]
+				},
+				{
+					"type": "container",
+					"classList": ["accordion-list"],
+					"attributes": ["custom-padding"],
+					"elements": [
+						{
+							"type": "accordion",
+							"label": "What is an accordion?",
+							"content": "An accordion is typically used for FAQs. So if your customer has questions about certain products or services, they would go to your FAQ section to learn more about it."
+						},
+						{
+							"type": "accordion",
+							"label": "What is an accordion?",
+							"content": "An accordion is typically used for FAQs. So if your customer has questions about certain products or services, they would go to your FAQ section to learn more about it."
+						},
+						{
+							"type": "accordion",
+							"label": "What is an accordion?",
+							"content": "An accordion is typically used for FAQs. So if your customer has questions about certain products or services, they would go to your FAQ section to learn more about it."
+						}
+					]
+				}
+			]
+		}
+	]
+}

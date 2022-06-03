@@ -184,7 +184,7 @@ footer {
 	.row[multi-dual] div,
 	.row[multi-tri] div,
 	.row[multi-quad] div { 
-		width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))) !important; 
+		width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))); 
 	}
 	
 	.row[multi-dual] ejs-content,
@@ -198,7 +198,7 @@ footer {
 	.row[multi-dual][dual-one-three] div:last-child,
 	.row[multi-dual][dual-three-one] div:first-child,
 	.row[multi-dual][dual-three-one] div:last-child { 
-		width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))) !important; 
+		width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))); 
 	}
 
 	/* Standard Tri */

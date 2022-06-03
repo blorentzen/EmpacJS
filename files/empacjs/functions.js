@@ -1,6 +1,9 @@
 // Functions for Empac.co
 /** Built by Britton Lorentzen [brittonlorentzen@gmail.com, blorentz.com] */
 
+const GRID_SPACING = 16;
+const GRID_SPACING_2X = 32;
+
 // Function that toggles the navigation menu
 function toggleNav(){
     
@@ -397,6 +400,31 @@ function adjustPaddleVisibility(theCarousel){
 	
 }
 
+// Function that activate the accordion
+function toggleAccordion(theAcc){
+	theAcc.classList.toggle('active');
+	
+	// Set aria attributes
+	let myBtn = theAcc.querySelector('button');
+	let ariaExp = myBtn.getAttribute('aria-expanded');
+	let newAriaExp = (ariaExp == "false") ? "true" : "false";
+	myBtn.setAttribute('aria-expanded', newAriaExp);
+	
+	let myContent = theAcc.querySelector('.acc-content');
+	let ariaHidden = myContent.getAttribute('aria-hidden');
+	let newAriaHidden = (ariaHidden == "false") ? "true" : "false";
+	myContent.setAttribute('aria-hidden', newAriaHidden);
+}
+
+// Function that sets the accordion sizing
+function setAccordionSize(theAcc){
+	let myInnerHeight = theAcc.querySelector('.acc-content').scrollHeight;
+	let buttonHeight = theAcc.querySelector('button').offsetHeight;
+	myInnerHeight += buttonHeight;
+	theAcc.style.setProperty('--acc-exp-height', myInnerHeight + 'px');
+	theAcc.style.setProperty('--acc-initial-height', buttonHeight + 'px');
+}
+
 // Set the document up
 window.onload = () => {
 	
@@ -459,6 +487,15 @@ window.onload = () => {
 		// Setup carousels if they have paddles
 		let myCarousels = document.querySelectorAll('[carousel]')
 		myCarousels.forEach(car => { setupCarousel(car) });
+		
+		// Setup accordions
+		document.querySelectorAll('.accordion-list [acc-item]').forEach(el => {
+			setAccordionSize(el);
+			window.addEventListener('resize', () => { setAccordionSize(el); });
+			el.querySelector('button').addEventListener('click', () => {
+				toggleAccordion(el);
+			})
+		})
 		
 	}, 1000);
 	

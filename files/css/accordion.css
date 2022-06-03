@@ -1,0 +1,88 @@
+@charset "UTF-8";
+/* Accordion Stylesheet for Empac.co */
+/* By Britton Lorentzen [brittonlorentzen@gmail.com, blorentz.com] */
+
+.accordion-list { 
+	display: flex; flex-direction: column;
+	width: 100% !important;
+	list-style: none;
+}
+
+.accordion-list [acc-item] { 
+	display: flex; flex-direction: column; 
+	width: 100% !important; margin-bottom: 2rem;
+	transition: 0.25s ease-in; -moz-transition: 0.25s ease-in; -webkit-transition: 0.25s ease-in;
+	height: var(--acc-initial-height);
+}
+
+.accordion-list [acc-item] button {
+	width: 100%; 
+	background-color: transparent;
+	border-bottom: 2px solid var(--color-black);
+	align-items: center; justify-content: space-between;
+	box-shadow: none;
+	-webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px;
+	padding: 1rem 0.5rem 1rem 0rem;
+}
+
+.accordion-list [acc-item] .acc-content {
+	position: relative; overflow: hidden; opacity: 0;
+	max-height: 0px; width: calc(100% - var(--spacing-grid));
+	padding: 1rem 1rem 1rem 0rem;
+	transition: 0.25s ease-in; -moz-transition: 0.25s ease-in; -webkit-transition: 0.25s ease-in;
+}
+
+.accordion-list [acc-item] .acc-content p {
+	margin-bottom: 0px;
+}
+
+.accordion-list [acc-item] button:after {
+	content: '\2039'; font-size: 1.5rem;
+	transform: rotate(-90deg);
+	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
+}
+
+/* Active State */
+.accordion-list [acc-item].active{
+	height: var(--acc-exp-height)
+}
+
+.accordion-list [acc-item].active button:after {
+	transform: rotate(90deg);
+	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
+}
+
+.accordion-list [acc-item].active .acc-content{
+	max-height: var(--acc-exp-height); opacity: 1;
+	transition: 0.25s ease-in; -moz-transition: 0.25s ease-in; -webkit-transition: 0.25s ease-in;
+}
+
+/* Standard Desktop */
+
+@media only screen and (max-width: 1440px) { }
+
+/* Smaller Desktop */
+
+@media only screen and (max-width: 1280px) { }
+
+/* Tablet Breakpoints */
+
+@media only screen and (max-width: 1024px) { }
+
+@media only screen and (max-width: 768px) { }
+	
+/* Mobile Breakpoints */
+
+@media only screen and (max-width: 640px) {
+
+	.accordion-list { width: 100% !important; }
+	.accordion-list [acc-item] { margin-bottom: 1rem; }
+	.accordion-list [acc-item]:last-child { margin-bottom: 0px; }
+
+}
+	
+	
+@media only screen and (max-width: 480px) { }
+	
+
+@media only screen and (max-width: 375px) { }

@@ -12,7 +12,7 @@ html, div, span, iframe, h1, h2, h3, h4, h5, h6, p, font, img, q, ol, li, ul, fo
 
 html { 
 	font-size: 16px; 
-	font-family: var(--font-main);
+	font-family: var(--font-display);
 	font-weight: 500;
 	line-height: 1.6em;
 }
@@ -21,7 +21,7 @@ body {
 	/* Set primary padding / margin multiple */
 	--padding-mult: 1; --margin-mult: 1;
 	width: 100%; display: block; position: relative; 
-	background-color: var(--color-white);
+	background-color: var(--color-white-90);
 }
 
 footer { 
@@ -96,34 +96,34 @@ footer {
 .container.has_carousel { width: 100% !important; }
 
 .row[carousel] { 
-	flex-wrap: nowrap; overflow-x: auto; scroll-padding: var(--spacing-grid); padding: var(--spacing-grid); 
-	scrollbar-width: 10px; scrollbar-color: var(--color-gray) var(--color-white-dark);
+	flex-wrap: nowrap; overflow-x: auto; scroll-padding: var(--spacing-grid); padding: 1rem 0rem; 
+	scrollbar-width: 10px; scrollbar-color: var(--color-gray-50) var(--color-white-80);
 }
 
 [carousel]::-webkit-scrollbar { 
-	height: 10px; background-color: var(--color-white-dark); 
+	height: 10px; background-color: var(--color-white-80); 
 	-webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
 }
 
 [carousel]::-webkit-scrollbar-track { 
-	background-color: var(--color-white-dark); 
+	background-color: var(--color-white-80); 
 	-webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
 }
 
 [carousel]::-webkit-scrollbar-thumb { 
-	border: 2px solid var(--color-white-dark);
+	border: 2px solid var(--color-white-80);
 	-webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
-	background-color: var(--color-gray); transition: 0.25s; -webkit-transition: 0.25s; 
+	background-color: var(--color-gray-50); transition: 0.25s; -webkit-transition: 0.25s; 
 }
 
 [carousel]::-webkit-scrollbar-thumb:hover { 
-	background-color: var(--color-black); transition: 0.25s; -webkit-transition: 0.25s; 
+	background-color: var(--color-black-20); transition: 0.25s; -webkit-transition: 0.25s; 
 	cursor: grab;
 }
 
-.row[carousel]::before { position: absolute; left: -1px; top: 0px; height: calc(100% - 10px); width: 2rem; background: linear-gradient(to right, var(--color-white), transparent); content: ''; }
+.row[carousel]::before { position: absolute; left: -1px; top: 0px; height: calc(100% - 10px); width: 2rem; background: linear-gradient(to right, var(--color-white-90), transparent); content: ''; }
 
-.row[carousel]::after { position: absolute; right: -1px; top: 0px; height: calc(100% - 10px); width: 2rem; background: linear-gradient(to left, var(--color-white), transparent); content: ''; }
+.row[carousel]::after { position: absolute; right: -1px; top: 0px; height: calc(100% - 10px); width: 2rem; background: linear-gradient(to left, var(--color-white-90), transparent); content: ''; }
 
 .row[carousel] div { width: var(--card-width); flex-shrink: 0; margin-right: var(--spacing-grid); }
 
@@ -148,6 +148,10 @@ footer {
 
 /* Padding specs */
 [custom-padding] { padding: calc(var(--spacing-grid) * var(--padding-mult)); }
+[custom-padding-top] { padding-top: calc(var(--spacing-grid) * var(--padding-top-mult));}
+[custom-padding-bottom] { padding-bottom: calc(var(--spacing-grid) * var(--padding-bottom-mult)); }
+[custom-padding-left] { padding-left: calc(var(--spacing-grid) * var(--padding-left-mult)); }
+[custom-padding-right] { padding-right: calc(var(--spacing-grid) * var(--padding-right-mult)); }
 [add-gutter] [custom-padding] { padding: calc(var(--spacing-grid) * calc(var(--padding-mult) / 2)); }
 
 /* Maring specs */
@@ -218,19 +222,30 @@ footer {
 	.row[multi-quad] ejs-content div { width: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))); }
 	
 	/* Carousel */
-	.row[carousel] { 
+	.row[carousel],
+	.row[mobile-carousel] { 
+		width: 100% !important;
 		flex-wrap: nowrap; flex-direction: row; overflow-x: auto; 
 		scroll-snap-type: x mandatory; 
 		-webkit-scroll-snap-scrolling: touch;
 		scroll-padding: 1rem;
 	}
-	.row[carousel]::before { width: 1rem; padding: 1px; displday: block; background: transparent; position: relative; left: 0px; }
-	.row[carousel]::after { width: 1rem; padding: 1px; displday: block; background: transparent; position: relative; right: 0px; }
-	.row[carousel] div { width: var(--card-width-mob); scroll-snap-align: center; }
+	.row[carousel]::before { width: 1rem; padding: 1px; display: block; background: transparent; position: relative; left: 0px; }
+	.row[carousel]::after { width: 1rem; padding: 1px; display: block; background: transparent; position: relative; right: 0px; }
+	
+	.row[carousel] div,
+	.row[mobile-carousel] div { width: var(--card-width-mob); scroll-snap-align: center; flex-shrink: 0; margin-inline: 16px 0px; }
+
+	.row[carousel] div:last-child,
+	.row[mobile-carousel] div:last-child { margin-inline: 16px; }
 	
 	.row[form-section] div { width: 100%; }
 	
 	[custom-padding] { padding: calc(var(--spacing-grid) * calc(var(--padding-mult) / 2)); }
+	[custom-padding-top-mob] { padding-top: calc(var(--spacing-grid) * var(--padding-top-mult-mob)); }
+	[custom-padding-bottom-mob] { padding-bottom: calc(var(--spacing-grid) * var(--padding-bottom-mult-mob)); }
+	[custom-padding-left-mob] { padding-left: calc(var(--spacing-grid) * var(--padding-left-mult-mob)); }
+	[custom-padding-right-mob] { padding-right: calc(var(--spacing-grid) * var(--padding-right-mult-mob)); }
 	
 }
 	

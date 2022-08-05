@@ -25,7 +25,7 @@ form input {
 	font-family: var(--font-main);
 	font-weight: 500;
 	line-height: 1.6em;
-	outline: 2px solid var(--color-black);
+	outline: 2px solid var(--color-black-20);
 }
 
 form a { display: contents; }
@@ -36,7 +36,7 @@ form div.custom-input label {
 }
 
 form div.custom-input:focus-within label, form div.custom-input.active label { 
-    position: absolute; top: 1rem; left: 1rem; font-size: 12px; color: var(--color-brand); 
+    position: absolute; top: 1rem; left: 1rem; font-size: 12px; color: var(--color-brand-50); 
     transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
 }
 
@@ -45,32 +45,32 @@ form div.custom-input input[type='text'], form div.custom-input input[type='emai
 	height: calc(100% - calc(var(--spacing-grid) * calc(var(--padding-mult) * 1))); 
 	position: absolute; 
 	padding: calc(var(--spacing-grid) * var(--padding-mult)) calc(var(--spacing-grid) * var(--padding-mult)) 0px; 
-	color: var(--color-black); background: transparent; border: none;
+	color: var(--color-black-20); background: transparent; border: none;
 	-moz-border-radius: var(--border-radius); -webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
     font-size: 1rem; transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
 }
 
 form div.custom-input input:focus, form div.custom-input.active input {
-    outline: 2px solid var(--color-brand);
+    outline: 2px solid var(--color-brand-50);
 	-moz-border-radius: var(--border-radius); -webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
     transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
 }
 
 /* Show Error States */
 form div.custom-input input.error { 
-	outline: 2px solid var(--color-red); 
+	outline: 2px solid var(--color-red-50); 
 	-moz-border-radius: var(--border-radius); -webkit-border-radius: var(--border-radius); border-radius: var(--border-radius);
 	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s; 
 }
 
 form div.custom-input input.error ~ label { 
-	color: var(--color-red); 
+	color: var(--color-red-50); 
 	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
 }
 
 form div.custom-input input.error ~ label::after {
-	content: '\0021'; color: var(--color-red); font-size: 1rem;
-	margin-left: 10px; padding: 1px 8px; font-weight: 700; border: 2px solid var(--color-red);
+	content: '\0021'; color: var(--color-red-50); font-size: 1rem;
+	margin-left: 10px; padding: 1px 8px; font-weight: 700; border: 2px solid var(--color-red-50);
 	-moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
 	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
 }
@@ -92,7 +92,7 @@ form div.custom-input:focus-within label::after {
     justify-content: center; align-items: center; text-align: center;
 }
 
-.form-success p { color: var(--color-brand); font-weight: 500; }
+.form-success p { color: var(--color-brand-50); font-weight: 500; }
 
 /* Smaller Desktop */
 

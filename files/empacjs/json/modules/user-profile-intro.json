@@ -1,0 +1,59 @@
+{
+	"type":"container",
+	"id":"userProfileIntro",
+	"classList":["container", "module", "light-mode", "has_bg", "row", "shadow-box"],
+	"attributes":["anim-drop-fade", "custom-margin"],
+	"properties":[
+		{ "key":"--padding-mult", "value":"2"},
+		{ "key":"--margin-mult", "value":"2"}
+	],
+	"elements":[ 
+		{
+			"type":"container",
+			"classList":["container", "module", "row"],
+			"attributes":["multi-dual", "custom-padding"],
+			"elements":[
+				{
+					"type":"container",
+					"classList":["content", "col", "align-center", "justify-center"],
+					"attributes":["custom-padding", "order-adjust-mobile"],
+					"properties":[
+						{ "key":"--flex-order", "value":"1" }
+					],
+					"elements": [
+						{
+							"type": "image", 
+							"alt": "gunther hammel logo",
+							"size": "xlarge",
+							"src": "/files/images/icons/standard/blue/account-icon.svg",
+							"properties":[
+								{ "key":"--size-mult", "value":"3" }
+							]
+						}
+					]
+				},
+				{
+					"type":"container",
+					"classList":["content"],
+					"attributes":["custom-padding", "order-adjust-mobile"],
+					"properties":[
+						{ "key": "--flex-order", "value":"2"}
+					],
+					"elements":[
+						{
+							"type":"headline",
+							"tag":"h3",
+							"size":"large",
+							"content":"The User Profile is a work in progress."
+						},
+						{
+							"type":"text",
+							"tag":"p",
+							"content":"There isn't much to see here yet. However, the end goal with this page is to allow you to control your account information with websites you're updating, components you're using, and all the apps you're leveraging for your digital presence. There's still quite a long ways to go until this is useful. However, we suggest submitting your email to the email list so we can keep you updated on what's coming."
+						}
+					]
+				}
+			]
+		}
+	]
+}

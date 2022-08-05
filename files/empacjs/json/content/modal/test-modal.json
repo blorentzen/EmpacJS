@@ -1,0 +1,47 @@
+{
+	"modal": {
+		"type":"container",
+		"classList":["modal-section"],
+		"attributes":[{"key": "data-modal-for", "value": "testContent"}],
+		"elements": [
+			{
+                "type":"container",
+                "classList":["modal-window"],
+                "attributes":["custom-padding"],
+                "properties":[
+                    {"key":"--padding-mult", "value":"2"}
+                ],
+                "elements": [
+                    {
+                        "type":"container",
+                        "classList":["modal-content"],
+                        "elements":[
+                            {
+                                "type":"headline",
+                                "tag":"h3",
+                                "size":"large",
+                                "content":"Testing Modal."
+                            },
+                            {
+                                "type":"text",
+                                "tag":"p",
+                                "content":"This is content meant for testing the modal. In most cases, the modal will house information that's more important than what you're reading right now."
+                            }
+                            
+                        ]
+                    },
+                    {
+                        "type":"button",
+                        "content":"&times;",
+                        "aria_label":"Click to close modal",
+                        "classList":["modal-close"],
+                        "attributes":[
+                            {"key":"data-button-type", "value":"modal-close"},
+                            {"key":"data-button-for", "value":"testContent"}
+                        ]
+                    }
+                ]
+			}
+		]
+	}
+}

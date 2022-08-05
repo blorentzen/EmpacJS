@@ -2,38 +2,41 @@
 /* Setup CSS Variables */
 /* By Britton Lorentzen, [brittonlorentzen@gmail.com, blorentz.com] */
 
+@import url("https://use.typekit.net/rgx3lyo.css");
+
 :root {
-	
+
 	/* Set up primary text */
 	--font-display: "europa", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	--font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	
+
 	/* Set up color palette */
-	--color-gray: #707070;
-	--color-gray-dark: #505050;
-	--color-black-light: #404040;
-	--color-black: #202020;
-	--color-black-dark: #000000;
+	--color-white-90: #f8f8f8;
+	--color-white-80: #e8e8e8;
+	--color-gray-70: #707070;
+	--color-gray-60: #606060;
+	--color-gray-50: #505050;
+	--color-gray-40: #404040;
+	--color-gray-30: #303030;
+	--color-black-20: #202020;
+	--color-black-00: #000000;
 	/**/
-	--color-white: #f8f8f8;
-	--color-white-dark: #e8e8e8;
+	--color-brand-30: #0F8FCE;
+	--color-brand-50: #0E75C1;
+	--color-brand-70: #095A81;
 	/**/
-	--color-brand-light: #0F8FCE;
-	--color-brand: #0E75C1;
-	--color-brand-dark: #095A81;
+	--color-red-30: #CE1C11;
+	--color-red-50: #C11A10;
+	--color-red-70: #81110B;
 	/**/
-	--color-red-light: #CE1C11;
-	--color-red: #C11A10;
-	--color-red-dark: #81110B;
-	/**/
-	--color-green-light: #1CCE13;
-	--color-green: #17A710;
-	--color-green-dark: #11810C;
-	
+	--color-green-30: #1CCE13;
+	--color-green-50: #17A710;
+	--color-green-70: #11810C;
+
 	/* Set up grid spacing */
 	--spacing-grid: 1rem;
-	
+
 	/* Set border radius */
 	--border-radius: 1rem;
-	
+
 }

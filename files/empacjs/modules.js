@@ -2,7 +2,7 @@
 /** Built by Britton Lorentzen [brittonlorentzen@gmail.com, blorentz.com] */
 
 /** Import Methods **/
-import { getData, handleData } from './app.js';
+import { getData, getDBData, handleData, handleEditorData } from './app.js';
 
 // Class for generating an Empac Loader
 export class EmpacLoader extends HTMLElement {
@@ -121,7 +121,38 @@ export class EmpacModule extends HTMLElement {
 			let dataDir = this.getAttribute('data-dir');
 			getData(dataString, dataType, null, dataDir).then(function(value){ 
 				newData = value;
-			}).finally(() => { this.append(handleData(newData)); });
+			}).finally(() => { 
+				this.append(handleData(newData)); 
+
+				// Handle modal data by appending to end
+				if(newData.modals != undefined){
+					newData.modals.forEach((modal) => { this.append(handleData(modal)) });
+				}
+			});
+
+			// Remove attributes
+			this.removeAttribute('data');
+			this.removeAttribute('data-type');
+			this.removeAttribute('data-dir');
+
+			return
+		}
+
+		if(this.getAttribute('db-data') != undefined){
+			getDBData(this.getAttribute('db-data'), this.getAttribute('db-type')).then(function(value){ 
+				newData = value[0];
+			}).finally(() => { 
+				this.append(handleData(newData)); 
+				if(this.hasAttribute('mode') && this.getAttribute('mode') == 'edit'){
+					handleEditorData(newData);
+				}
+			});
+
+			// Remove attributes
+			this.removeAttribute('db-data');
+			this.removeAttribute('db-type');
+
+			return
 		}
 	}
 }
@@ -143,6 +174,13 @@ export class EmpacContent extends HTMLElement {
 			getData(dataString, dataType, null, dataDir).then(function(value){ 
 				newData = value;
 			}).finally(() => { this.append(handleData(newData[subType])); });
+
+			// Remove attributes
+			this.removeAttribute('data');
+			this.removeAttribute('data-type');
+			this.removeAttribute('data-subtype');
+			this.removeAttribute('data-dir');
+
 		}
 	}
 }

@@ -11,6 +11,7 @@ img[size="medium"] { max-width: 6rem; }
 img[size="large"] { max-width: 9rem; }
 img[size="xlarge"] { max-width: calc(9rem + calc(var(--size-mult) * 3rem)); }
 img[size="full"] { max-width: 100%; }
+img[size="custom"] { max-width: var(--size-custom); }
 
 img.social { max-width: 2rem; margin: 0px 10px; }
 
@@ -39,6 +40,7 @@ img.standard-radius { -moz-border-radius: var(--border-radius); -webkit-border-r
 	img[size="medium"] { max-width: 3rem; }
 	img[size="large"] { max-width: 4.5rem; }
 	img[size="xlarge"] { max-width: calc(4.5rem + calc(var(--size-mult) * 1.5rem)); }
+	img[size="custom"][img-size-mob]{ max-width: var(--size-custom-mob); }
 	    
 }
 	

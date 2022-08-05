@@ -30,12 +30,14 @@ function toggleNav(){
 }
 
 // Functions that handle modal opening/closing
-function openModal(theModal){
+function openModal(theModal, theType){
 	let modalContent = theModal.querySelector('.modal-content');
 	if(!theModal.classList.contains('active')){
 		theModal.style.display = 'flex';
-		modalContent.appendChild(generateModalLoader());
-		modalContent.appendChild(returnBookingScript());
+		if(theType == 'appt-booking'){
+			modalContent.appendChild(generateModalLoader());
+			modalContent.appendChild(returnBookingScript());
+		}
 		setTimeout(() => { 
 			theModal.classList.toggle('active');
 			if(theModal.querySelector('iframe') != null){
@@ -54,17 +56,17 @@ function openModal(theModal){
 		let yPos = e.clientY;
 		
 		if(xPos < myBoundary.left || xPos > myBoundary.right || yPos < myBoundary.top || yPos > myBoundary.bottom){
-			closeModal(theModal);
+			closeModal(theModal, theType);
 		}
 	});
 }
 
-function closeModal(theModal){
+function closeModal(theModal, theType){
 	if(theModal.classList.contains('active')){
 		theModal.classList.toggle('active');
 			setTimeout(() => {
 				theModal.style.display = 'none';
-				theModal.querySelector('.modal-content').innerHTML = '';
+				if(theType == 'appt-booking'){ theModal.querySelector('.modal-content').innerHTML = ''; }
 			}, 500);
 	}
 	theModal.removeEventListener('click', () => {});
@@ -423,17 +425,22 @@ function setAccordionSize(theAcc){
 }
 
 // Set the document up
+const MODULES = [];
+
 window.onload = () => {
-	
+
+	if(document.querySelector('body').hasAttribute('editor')){ 
+		console.log('Page is in Editor Mode'); 
+	}
+
 	// Display code samples
 	document.querySelectorAll('code').forEach(el => { displayCode(el); });
 	
 	setTimeout(() => {
+
 		let mySpinner = document.querySelector('.primary-loader');
 		let navBar = document.querySelector('.nav-bar');
 		let headerModule = document.querySelector('.header-module');
-		
-		document.querySelectorAll('[gallery]').forEach(gallery => { setupGallery(gallery); });
 
 		mySpinner.classList.add('inactive');
 		setTimeout(() => { 
@@ -449,6 +456,9 @@ window.onload = () => {
 		document.querySelector('.nav-bar .toggle').addEventListener('keyup', (e) => { if(e.keyCode === 13){ toggleNav(); } });
 		*/
 		
+		// Setup gallery
+		document.querySelectorAll('[gallery]').forEach(gallery => { setupGallery(gallery); });
+
 		// Set up observer for drop fade
 		setTimeout(() => {
 			let myFadeObserver = createIntersection();
@@ -463,7 +473,7 @@ window.onload = () => {
 				btn.addEventListener('click', () => {
 					openModal(
 						document.querySelector('[data-modal-for=' + btn.getAttribute('data-button-for') + ']'), 
-						document.querySelector('[data-modal-for=' + btn.getAttribute('data-button-for') + ']')
+						btn.getAttribute('data-button-for')
 					);
 				})
 			}
@@ -503,7 +513,5 @@ window.onload = () => {
 		});
 		
 	}, 1000);
-	
-}
 
-
+};

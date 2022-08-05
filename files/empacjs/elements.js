@@ -2,7 +2,7 @@
 /** Built by Britton Lorentzen [brittonlorentzen@gmail.com, blorentz.com] */
 
 // Set standard class for all EJS elements
-class EJS_Element {
+export class EJS_Element {
     constructor(){
         this.type;
         this.id;
@@ -15,7 +15,7 @@ class EJS_Element {
     addClass(entry){ this.classList.push(entry); }
     addAttr(key, value){ 
         // If value isn't given, force return with simple key set
-        if(value == undefined){ this.attributes.push(entry); return; }
+        if(value == undefined){ this.attributes.push(key); return; }
 
         let newObj = new Object;
         newObj.key = key;
@@ -35,7 +35,7 @@ class EJS_Element {
 }
 
 // Class for container
-class Container extends EJS_Element {
+export class Container extends EJS_Element {
     constructor(){
         super();
         this.type = 'container';
@@ -47,7 +47,7 @@ class Container extends EJS_Element {
 }
 
 // Classes for text elements
-class Headline extends EJS_Element {
+export class Headline extends EJS_Element {
     constructor(theTag){
         super();
         this.type = 'headline';
@@ -60,7 +60,7 @@ class Headline extends EJS_Element {
     setContent(entry){ this.content = entry; }
 }
 
-class Text extends EJS_Element {
+export class Text extends EJS_Element {
     constructor(theTag, theContent){
         super();
         this.type = 'text';
@@ -74,7 +74,7 @@ class Text extends EJS_Element {
 }
 
 // Class for images
-class Image extends EJS_Element {
+export class Image extends EJS_Element {
     constructor(theSrc){
         super();
         this.type = 'image';
@@ -83,6 +83,7 @@ class Image extends EJS_Element {
 
         if(theSrc != undefined){ this.src = theSrc; }
         else { this.src = '#' }
+
     }
 
     setAlt(entry){ this.alt = entry; }
@@ -91,7 +92,7 @@ class Image extends EJS_Element {
 }
 
 // Class for setting links and buttons
-class Link extends EJS_Element {
+export class Link extends EJS_Element {
     constructor(theContent, theHref){
         super();
         this.type = 'link';
@@ -111,7 +112,7 @@ class Link extends EJS_Element {
     setHref(entry){ this.href = entry; }
 }
 
-class Button extends EJS_Element {
+export class Button extends EJS_Element {
     constructor(theContent, theSubtype){
         super();
         this.type = 'button';
@@ -120,26 +121,38 @@ class Button extends EJS_Element {
         if(theContent != undefined){ this.content = theContent; }
         else { this.content = 'New Button'; };
 
-        if(theSubtype != undefined){ this.subtype = theSubtype; };
+        if(theSubtype != undefined){ 
+            this.subtype = theSubtype; 
+
+            if(theSubtype == 'image'){
+                this.src;
+                this.alt_text;
+            }
+        };
+
     }
 
     setAriaLabel(entry){ this.aria_label = entry; }
     setContent(entry){ this.content = entry; }
     setSubtype(entry){ this.subtype = entry; }
+    setSrc(entry){ this.src = entry; }
+    setAlt(entry){ this.alt = entry; }
 }
 
 // Class for setting up videos
-class YouTubeVideo extends EJS_Element {
-    constructor(theID, theTitle){
+export class Video extends EJS_Element {
+    constructor(theSubtype, theID, theTitle){
         super();
         this.type = 'video';
-        this.subtype = 'youtube';
+        this.subtype = theSubtype;
         this.video_id = theID;
+        this.poster;
 
         if(theTitle != undefined){ this.title = theTitle; }
-        else{ this.title = 'YouTube Video' };
+        else{ this.title = 'New Video' };
     }
 
-    setVid(entry){ this.video_id = entry; };
+    setVid(entry){ this.video_id = entry; }
+    setPoster(entry){ this.poster = entry; }
     setTitle(entry){ this.title = entry; }
 }

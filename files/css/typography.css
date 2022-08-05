@@ -2,26 +2,23 @@
 /* Typography */
 /* By Britton Lorentzen [brittonlorentzen@gmail.com, blorentz.com] */
 
-/* Import dependent files */
-@import "https://use.typekit.net/rgx3lyo.css";
-
 /* Text Specifics */
 .text-left { text-align: left; }
 .text-center { text-align: center; }
 
 /* Typography */
 
-.light-mode { color: var(--color-black); }
-.dark-mode { color: var(--color-white); }
+.light-mode { color: var(--color-black-20); }
+.dark-mode { color: var(--color-white-90); }
 
 h1, h2 { font-family: var(--font-display); font-weight: 700; line-height: 1.2em; margin-bottom: 1.5rem; }
-h3, h4 { font-weight: 600; line-height: 1.2em; margin-bottom: 1.5rem; }
-h4, h5 { font-weight: 500; line-height: 1.2em; margin-bottom: 1.5rem; }
+h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.2em; margin-bottom: 1.5rem; }
+h4, h5 { font-family: var(--font-display); font-weight: 500; line-height: 1.2em; margin-bottom: 1.5rem; }
 
 h1[size="large"], h2[size="large"] { font-size: 4.75rem; }
 h1[size="medium"], h2[size="medium"] { font-size: 4.25rem; }
 h1[size="small"], h2[size="small"] { font-size: 3.75rem; }
-.eyebrow { font-family: var(--font-main); font-weight: 600; font-size: 1rem; margin-bottom: 1.5rem; }
+.eyebrow { font-family: var(--font-display); font-weight: 600; font-size: 1rem; margin-bottom: 1.5rem; }
 
 h3[size="large"], h4[size="large"] { font-size: 3.75rem; }
 h3[size="medium"], h4[size="medium"] { font-size: 3.25rem; }
@@ -31,7 +28,8 @@ h5[size="large"], h6[size="large"] { font-size: 2.75rem; }
 h5[size="medium"], h6[size="medium"] { font-size: 2.25rem; }
 h5[size="small"], h6[size="small"] { font-size: 1.75rem; }
 
-p { font-size: 1.25rem; line-height: 1.75em; margin-bottom: 1.5rem; }
+p { font-family: var(--font-display); font-size: 1.25rem; line-height: 1.75em; margin-bottom: 1.5rem; }
+span { font-family: var(--font-display); }
 p b { font-weight: 900; }
 
 /* Specific Paragraph Styling */
@@ -51,7 +49,7 @@ span.nav-heading { font-family: var(--font-display); font-weight: 600; font-size
 	h1[size="large"], h2[size="large"] { font-size: 4rem; }
 	h1[size="medium"], h2[size="medium"] { font-size: 3.5rem; }
 	h1[size="small"], h2[size="small"] { font-size: 3rem; }
-	.eyebrow { font-family: var(--font-main); font-weight: 600; font-size: 1rem; margin-bottom: 1.5rem; }
+	.eyebrow { font-family: var(--font-display); font-weight: 600; font-size: 1rem; margin-bottom: 1.5rem; }
 
 	h3[size="large"], h4[size="large"] { font-size: 3rem; }
 	h3[size="medium"], h4[size="medium"] { font-size: 2.5rem; }

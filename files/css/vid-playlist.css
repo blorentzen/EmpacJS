@@ -2,9 +2,21 @@
 /* Video Playlist Stylesheet for Empac.co */
 /* By Britton Lorentzen [brittonlorentzen@gmail.com, blorentz.com] */
 
+[vid-playlist] [yt-player],
+[vid-playlist] [video-player] { background: var(--color-black-20); }
+
+[vid-playlist] [yt-player] iframe,
+[vid-playlist] [video-player] video { opacity: 0; }
+
+[vid-playlist] [yt-player] iframe.active,
+[vid-playlist] [video-player] video.active { 
+    opacity: 1; 
+    transition: 0.5s; -moz-transition: 0.5s; -webkit-transition: 0.5s;
+}
+
 [vid-playlist] [vid-collection] { position: relative; }
 
-[vid-playlist] [vid-collection] [gallery-buttons] { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; position: relative; z-index: 50; }
+[vid-playlist] [vid-collection] [vid-buttons] { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; position: relative; z-index: 50; }
 
 [vid-playlist] [vid-collection] [vid-buttons] button {
 	width: var(--button-width); height: var(--button-width);
@@ -13,12 +25,20 @@
 	background-size: cover; background-position: center center;
 	box-shadow: inset 0px 0px 0px 2px var(--color-white);
 	border: 2px solid var(--color-black-20);
-	flex-shrink: 0;
+	flex-shrink: 0; justify-content: center; align-items: center;
+}
+
+[vid-playlist] [vid-collection] [vid-buttons] button img {
+    opacity: 0; transition: 0.5s; -moz-transition: 0.5s; -webkit-transition: 0.5s;
 }
 
 [vid-playlist] [vid-collection] [vid-buttons] button.active {
 	border: 2px solid var(--color-brand-50);
 	transition: 0.25s; -moz-transition: 0.25s; -webkit-transition: 0.25s;
+}
+
+[vid-playlist] [vid-collection] [vid-buttons] button.active img {
+    opacity: 1; transition: 0.5s; -moz-transition: 0.5s; -webkit-transition: 0.5s;
 }
 
 [vid-playlist] [vid-collection] [vid-buttons]::-webkit-scrollbar { 

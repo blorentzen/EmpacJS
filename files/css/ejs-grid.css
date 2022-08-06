@@ -146,6 +146,10 @@ footer {
 .align-center { align-items: center; }
 .align-end { align-items: flex-end; }
 
+/* Custom Justify and Align Items */
+.justify-custom { justify-content: var(--justify-content); }
+.align-items-custom { align-items: var(--align-items); }
+
 /* Padding specs */
 [custom-padding] { padding: calc(var(--spacing-grid) * var(--padding-mult)); }
 [custom-padding-top] { padding-top: calc(var(--spacing-grid) * var(--padding-top-mult));}
@@ -246,6 +250,9 @@ footer {
 	[custom-padding-bottom-mob] { padding-bottom: calc(var(--spacing-grid) * var(--padding-bottom-mult-mob)); }
 	[custom-padding-left-mob] { padding-left: calc(var(--spacing-grid) * var(--padding-left-mult-mob)); }
 	[custom-padding-right-mob] { padding-right: calc(var(--spacing-grid) * var(--padding-right-mult-mob)); }
+
+	.justify-custom[justify-mob] { justify-content: var(--justify-content-mob); }
+	.align-items-custom[align-items-mob] { align-items: var(--align-items-mob); }
 	
 }
 	

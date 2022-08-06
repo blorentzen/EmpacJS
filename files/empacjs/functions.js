@@ -337,8 +337,84 @@ function updateGalleryImage(theImage, theGallery){
 }
 
 // Function that sets up YouTube Embed
-function setupVidPlaylist(){
-	
+function setupVidPlaylist(theSection){
+	let videoSection = theSection.querySelector('[vid-playback]');
+	let vidButtons = theSection.querySelectorAll('[vid-buttons] button');
+	vidButtons.forEach(btn => {
+		// Add play indicators
+		let playIndicator = document.createElement('img');
+		playIndicator.src = '/files/images/icons/standard/blue/play-icon.svg';
+		playIndicator.setAttribute('size', 'small');
+		playIndicator.setAttribute('alt', 'play button indicator');
+		btn.appendChild(playIndicator);
+
+		let vidImage = btn.getAttribute('vid-image');
+		btn.style.setProperty('--vid-image', "url(" + vidImage + ")");
+
+		btn.addEventListener('click', () => {
+			// Reset the video and thumbnail states
+			videoSection.innerHTML = '';
+			vidButtons.forEach(btn => { if(btn.classList.contains('active')) { btn.classList.remove('active') }});
+
+			// Create video element
+			let newVid;
+
+			// Grab video elements
+			let vidSrc = btn.getAttribute('vid-src');
+			let vidType = btn.getAttribute('vid-type');
+			let vidTitle = btn.getAttribute('vid-title');
+			
+			if(vidType == 'youtube'){
+				if(!videoSection.hasAttribute('yt-player')) { videoSection.setAttribute('yt-player', true) };
+				if(videoSection.hasAttribute('video-player')) { videoSection.removeAttribute('video-player') };
+				if(videoSection.classList.contains('active')){ videoSection.classList.remove('active'); }
+				newVid = document.createElement('iframe');
+				newVid.src = 'https://youtube.com/embed/' + vidSrc;
+				newVid.setAttribute('title', vidTitle);
+			}
+			else if(vidType == 'standard'){
+				if(!videoSection.hasAttribute('video-player')) { videoSection.setAttribute('video-player', true) };
+				if(videoSection.hasAttribute('yt-player')) { videoSection.removeAttribute('yt-player') };
+				
+				// Create video button
+				let vidButton = document.createElement('button');
+				vidButton.setAttribute('video-button', true);
+
+				let vidImg = document.createElement('img');
+				vidImg.setAttribute('size', 'large');
+				vidImg.setAttribute('alt', 'play video');
+				vidImg.src = '/files/images/icons/standard/white/play-icon.svg';
+
+				vidButton.appendChild(vidImg);
+
+				// Set up video
+				newVid = document.createElement('video');
+				newVid.setAttribute('poster', vidImage);
+
+				let newVidSrc = document.createElement('source');
+				newVidSrc.setAttribute('type', 'video/mp4');
+				newVidSrc.src = vidSrc;
+				newVid.appendChild(newVidSrc);
+
+				// Set up listener for play button and add it to DOM
+				vidButton.addEventListener('click', () => { playVideo(videoSection); })
+
+				videoSection.appendChild(vidButton);
+
+			};
+			videoSection.appendChild(newVid);
+			// Set active classes
+			btn.classList.add('active');
+			setTimeout(function() { 
+				if(videoSection.hasAttribute('yt-player')){
+					videoSection.querySelector('iframe').classList.add('active'); 
+				}
+				else if(videoSection.hasAttribute('video-player')){
+					videoSection.querySelector('video').classList.add('active'); 
+				}
+			}, 500);
+		});
+	})
 }
 
 // Function that sets up carousel paddles
@@ -490,6 +566,9 @@ window.onload = () => {
 		document.querySelectorAll('[video-player]').forEach(vid => {
 			vid.querySelector('[video-button]').addEventListener('click', () => { playVideo(vid); });
 		});
+
+		// Turn on video playlists
+		document.querySelectorAll('[vid-playlist]').forEach(playlist => { setupVidPlaylist(playlist); });
 		
 		// Setup carousels if they have paddles
 		let myCarousels = document.querySelectorAll('[carousel]')

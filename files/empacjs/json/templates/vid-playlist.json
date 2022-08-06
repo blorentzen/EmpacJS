@@ -11,10 +11,11 @@
 		{
 			"type":"container",
 			"classList":["content", "row"],
-			"attributes":["yt-player"],
+			"attributes":["vid-playback", "yt-player"],
 			"elements":[
 				{
 					"type":"video", 
+					"classList":["active"],
 					"subtype":"youtube",
 					"video_id":"79Rh1heMfWM",
 					"title":"youtube video test"
@@ -40,6 +41,7 @@
 							"type": "button",
 							"content": "",
 							"aria_label": "Vid 1",
+							"classList":["active"],
 							"attributes": [
 								{"key": "vid-image", "value": "/files/images/bg/abstract/bg-empac-interconnected-blue.jpg"},
                                 {"key": "vid-src", "value": "79Rh1heMfWM"},
@@ -52,6 +54,17 @@
 							"content": "",
 							"aria_label": "Vid 2",
 							"attributes": [
+								{"key": "vid-image", "value": "/files/video/thumbnail/tmobile-deals_hub-after-poster.jpg"},
+                                {"key": "vid-src", "value": "/files/video/deals-hub-after.mp4"},
+                                {"key": "vid-type", "value": "standard"},
+                                {"key": "vid-title", "value": "test title"}
+							]
+						},
+						{
+							"type": "button",
+							"content": "",
+							"aria_label": "Vid 3",
+							"attributes": [
 								{"key": "vid-image", "value": "/files/images/bg/abstract/bg-empac-interconnected-blue.jpg"},
                                 {"key": "vid-src", "value": "qV4fLmkbJi0"},
                                 {"key": "vid-type", "value": "youtube"},
@@ -61,7 +74,18 @@
 						{
 							"type": "button",
 							"content": "",
-							"aria_label": "Vid 3",
+							"aria_label": "Vid 4",
+							"attributes": [
+								{"key": "vid-image", "value": "/files/video/thumbnail/tmobile-deals_hub-after-poster.jpg"},
+                                {"key": "vid-src", "value": "/files/video/deals-hub-after.mp4"},
+                                {"key": "vid-type", "value": "standard"},
+                                {"key": "vid-title", "value": "test title"}
+							]
+						},
+						{
+							"type": "button",
+							"content": "",
+							"aria_label": "Vid 5",
 							"attributes": [
 								{"key": "vid-image", "value": "/files/images/bg/abstract/bg-empac-interconnected-blue.jpg"},
                                 {"key": "vid-src", "value": "k6N1RFyhjFE"},
@@ -72,32 +96,21 @@
 						{
 							"type": "button",
 							"content": "",
-							"aria_label": "Vid 4",
+							"aria_label": "Vid 6",
+							"attributes": [
+								{"key": "vid-image", "value": "/files/video/thumbnail/tmobile-deals_hub-after-poster.jpg"},
+                                {"key": "vid-src", "value": "/files/video/deals-hub-after.mp4"},
+                                {"key": "vid-type", "value": "standard"},
+                                {"key": "vid-title", "value": "test title"}
+							]
+						},
+						{
+							"type": "button",
+							"content": "",
+							"aria_label": "Vid 7",
 							"attributes": [
 								{"key": "vid-image", "value": "/files/images/bg/abstract/bg-empac-interconnected-blue.jpg"},
                                 {"key": "vid-src", "value": "Js-vomTpWLs"},
-                                {"key": "vid-type", "value": "youtube"},
-                                {"key": "vid-title", "value": "test title"}
-							]
-						},
-						{
-							"type": "button",
-							"content": "",
-							"aria_label": "Vid 5",
-							"attributes": [
-								{"key": "vid-image", "value": "/files/images/bg/abstract/bg-empac-interconnected-blue.jpg"},
-                                {"key": "vid-src", "value": "56o8YgjYMIg"},
-                                {"key": "vid-type", "value": "youtube"},
-                                {"key": "vid-title", "value": "test title"}
-							]
-						},
-						{
-							"type": "button",
-							"content": "",
-							"aria_label": "Vid 6",
-							"attributes": [
-								{"key": "vid-image", "value": "/files/images/bg/abstract/bg-empac-interconnected-blue.jpg"},
-                                {"key": "vid-src", "value": "2CsUtufWwLo"},
                                 {"key": "vid-type", "value": "youtube"},
                                 {"key": "vid-title", "value": "test title"}
 							]
